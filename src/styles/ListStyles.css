@@ -1,0 +1,15 @@
+.anime {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-around;
+}
+
+.library {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-around;
+}

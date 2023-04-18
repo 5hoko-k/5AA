@@ -1,0 +1,6 @@
+#stats {
+
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+}
