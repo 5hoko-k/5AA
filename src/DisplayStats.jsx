@@ -126,3 +126,13 @@ function DisplayStats () {
 }
 
 export default DisplayStats;
+
+const TimeCount = () => {
+  return (
+    <>
+      <div>
+        
+      </div>
+    </>
+  )
+}
