@@ -10,13 +10,16 @@ var query = gql`
       sort: UPDATED_TIME_DESC
     ) {
       lists {
+        name
         entries {
+          id
           progress
           updatedAt
           media {
             id
             title {
               english
+              romaji
             }
             episodes
             coverImage {
@@ -35,20 +38,22 @@ function DisplayProgress() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  return data.MediaListCollection.lists.map(({ entries }) => (
-    <>
-      <div className="library">
-        <DisplayAnime entries={entries} />
-      </div>
-    </>
+  console.log(data);
+
+  return data.MediaListCollection.lists.map(({ name, entries }) => (
+    <div key={name} className="library">
+      <DisplayAnimeProgress entries={entries} />
+    </div>
   ));
 }
 
 export default DisplayProgress;
 
-const DisplayAnime = (props) => {
-  return props.entries.map(({ progress, media, updatedAt }) => {
-    <div key={media.id} className="anime">
+const DisplayAnimeProgress = (props) => {
+
+    console.log(props.entries)
+  return props.entries.map(({ id, progress, media, updatedAt }) => {
+    <div key={id} className="anime">
       <img alt="image" src={media.coverImage.large} />
       <span>
         <em>ID: </em>
