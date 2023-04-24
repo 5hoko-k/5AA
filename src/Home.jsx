@@ -1,4 +1,5 @@
 import DisplayLibrary from "./DisplayLibrary";
+import DisplayProgress from "./DisplayProgress";
 import DisplayStats from "./DisplayStats";
 
 function Home () {
@@ -6,6 +7,7 @@ function Home () {
         <>
             <div>
                 <DisplayStats />
+                <DisplayProgress />
             </div>
             {/* <DisplayLibrary /> */}
         </>

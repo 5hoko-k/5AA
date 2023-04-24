@@ -14,6 +14,7 @@ var query = gql`
           progress
           updatedAt
           media {
+            id
             title {
               english
             }
