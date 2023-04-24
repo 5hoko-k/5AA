@@ -47,8 +47,7 @@ function DisplayStats() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-
-  console.log(data);
+  
   const name = data.User.name;
   const count = data.User.statistics.anime.count;
   const minutes = data.User.statistics.anime.minutesWatched;

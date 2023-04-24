@@ -7,8 +7,8 @@ function Home () {
         <>
             <div>
                 <DisplayStats />
-                <DisplayProgress />
             </div>
+            <DisplayProgress />
             {/* <DisplayLibrary /> */}
         </>
     )
