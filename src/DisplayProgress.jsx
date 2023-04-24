@@ -23,8 +23,10 @@ var query = gql`
             }
             episodes
             coverImage {
+              medium
               large
             }
+            bannerImage
           }
         }
       }
@@ -51,7 +53,7 @@ const DisplayAnimeProgress = (props) => {
   return props.entries.map(({ id, progress, media, episodes }) => (
     <>
       <div key={id} className="anime">
-        <img alt="image" src={media.coverImage.large} />
+        <img className='ProgressImg' alt="image" src={media.coverImage.large} />
         <span>
           <em>ID: </em>
         </span>
