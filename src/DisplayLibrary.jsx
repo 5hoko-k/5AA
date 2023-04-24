@@ -25,7 +25,7 @@ query {
   }
 }`;
 
-function DisplayLocations() {
+function DisplayLibrary() {
     const { loading, error, data } = useQuery(query);
 
     if (loading) return <p>Loading...</p>;
@@ -42,7 +42,7 @@ function DisplayLocations() {
     );
 }
 
-export default DisplayLocations;
+export default DisplayLibrary;
 
 const DisplayAnime = (props) => {
   return props.entries.map(({media, progress, score, status}) => (

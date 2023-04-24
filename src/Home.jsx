@@ -1,4 +1,4 @@
-import DisplayLocations from "./DisplayLocations";
+import DisplayLibrary from "./DisplayLibrary";
 import DisplayStats from "./DisplayStats";
 
 function Home () {
@@ -7,7 +7,7 @@ function Home () {
             <div>
                 <DisplayStats />
             </div>
-            {/* <DisplayLocations /> */}
+            {/* <DisplayLibrary /> */}
         </>
     )
 }
