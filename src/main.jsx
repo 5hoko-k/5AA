@@ -17,6 +17,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <NavBar />
         <Home />
       </div>
-    </ApolloProvider>,
-  </React.StrictMode>,
+    </ApolloProvider>
+  </React.StrictMode>
 )
