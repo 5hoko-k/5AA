@@ -1,4 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
+import "./styles/ListStyles.css";
 
 var query = gql`
   query {
@@ -35,7 +36,9 @@ function DisplayProgress() {
 
   return data.MediaListCollection.lists.map(({ entries }) => (
     <>
-      <DisplayAnime entries={entries} />
+      <div className="library">
+        <DisplayAnime entries={entries} />
+      </div>
     </>
   ));
 }
@@ -43,7 +46,7 @@ function DisplayProgress() {
 export default DisplayProgress;
 
 const DisplayAnime = (props) => {
-  return props.entries.map(({progress, media, updatedAt}) => {
+  return props.entries.map(({ progress, media, updatedAt }) => {
     <div key={media.id} className="anime">
       <img alt="image" src={media.coverImage.large} />
       <span>
@@ -53,7 +56,10 @@ const DisplayAnime = (props) => {
       <span>
         {media.title.english ? media.title.english : media.title.romaji}
       </span>
-      <span><em>Progess: </em>{ progress }</span>
+      <span>
+        <em>Progess: </em>
+        {progress}
+      </span>
     </div>;
   });
 };
