@@ -33,7 +33,27 @@ function DisplayProgress() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  return <></>;
+  return data.MediaListCollection.lists.map(({ entries }) => (
+    <>
+      <DisplayAnime entries={entries} />
+    </>
+  ));
 }
 
 export default DisplayProgress;
+
+const DisplayAnime = (props) => {
+  return props.entries.map(({progress, media, updatedAt}) => {
+    <div key={media.id} className="anime">
+      <img alt="image" src={media.coverImage.large} />
+      <span>
+        <em>ID: </em>
+      </span>
+      <span>{media.id}</span>
+      <span>
+        {media.title.english ? media.title.english : media.title.romaji}
+      </span>
+      <span><em>Progess: </em>{ progress }</span>
+    </div>;
+  });
+};
