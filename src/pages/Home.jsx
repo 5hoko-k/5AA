@@ -1,6 +1,6 @@
-import DisplayLibrary from "./DisplayLibrary";
-import DisplayProgress from "./DisplayProgress";
-import DisplayStats from "./DisplayStats";
+import DisplayLibrary from "../components/DisplayLibrary";
+import DisplayProgress from "../DisplayProgress";
+import DisplayStats from "../DisplayStats";
 
 function Home () {
     return (
