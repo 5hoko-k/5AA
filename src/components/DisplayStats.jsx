@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import "./styles/StatsStyles.css";
+import "../styles/StatsStyles.css";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 

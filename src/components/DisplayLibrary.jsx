@@ -1,5 +1,5 @@
 import { useQuery, gql } from '@apollo/client';
-import "./styles/ListStyles.css"
+import "../styles/ListStyles.css"
 
 var query = gql`
 query {

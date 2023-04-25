@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./pages/Home";
-import NavBar from "./NavBar";
+import NavBar from "./components/NavBar";
 import "./styles/index.css";
 import {
   ApolloClient,
@@ -10,6 +9,7 @@ import {
   gql,
 } from "@apollo/client";
 import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
 const client = new ApolloClient({
   uri: "https://graphql.anilist.co",
