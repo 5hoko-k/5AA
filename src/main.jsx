@@ -19,8 +19,8 @@ const client = new ApolloClient({
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <NavBar />
       <BrowserRouter>
+        <NavBar />
         <App />
       </BrowserRouter>
     </ApolloProvider>
