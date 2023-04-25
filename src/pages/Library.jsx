@@ -1,7 +1,9 @@
+import DisplayLibrary from "../components/DisplayLibrary";
+
 export default function Library() {
   return (
     <>
-      <h1>Library</h1>
+      <DisplayLibrary />
     </>
   );
 }
