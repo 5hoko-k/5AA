@@ -1,15 +1,30 @@
 import DisplayLibrary from "../components/DisplayLibrary";
+import { createContext, useContext, useState } from "react";
+
+const TitleLanguage = createContext("english");
 
 export default function Library() {
   return (
     <>
-      <Filter />
-      <DisplayLibrary />
+      <TitleLanguage.Provider value="english">
+        <Filter />
+        <DisplayLibrary />
+      </TitleLanguage.Provider>
     </>
   );
 }
 
 const Filter = () => {
+  const [titleLangeage, steTitleLanguage] = useState("english");
+
+  const handleTitleChange = () => {
+    if (titleLangeage !== "english") {
+      steTitleLanguage("english");
+    } else if (titleLangeage === "english") {
+      steTitleLanguage("romaji");
+    }
+  };
+
   return (
     <>
       <form>
@@ -25,6 +40,7 @@ const Filter = () => {
         <br />
         <br />
 
+        <button onClick={handleTitleChange}>{titleLangeage === 'english' ? 'English' : 'Romaji'}</button>
         <input type="submit" value="Filter" />
       </form>
     </>
