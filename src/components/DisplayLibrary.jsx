@@ -1,5 +1,8 @@
 import { useQuery, gql } from "@apollo/client";
 import "../styles/ListStyles.css";
+import { useContext, useState } from "react";
+import { TitleLanguage } from "../pages/Library";
+import Filter from "../components/Filter";
 
 var query = gql`
   query {
@@ -28,47 +31,55 @@ var query = gql`
 
 function DisplayLibrary() {
   const { loading, error, data } = useQuery(query);
+ 
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  return data.MediaListCollection.lists.map(({ entries }) => (
+  return (
     <>
-      {console.log(entries)}
-      <div className="library">
-        <DisplayAnime entries={entries} />
-      </div>
+
+        <Filter />
+        {data.MediaListCollection.lists.map(({ entries }) => (
+          <div className="library">
+            <DisplayAnime entries={entries} />
+          </div>
+        ))}
+
     </>
-  ));
+  );
 }
 
 export default DisplayLibrary;
 
 const DisplayAnime = (props) => {
-  return props.entries.map(({ media, progress, score, status }) => (
+  const { isEnglish } = useContext(TitleLanguage)
+  return (
     <>
-      <div key={media.id} className="anime">
-        <img alt="image" src={media.coverImage.large} />
-        <span>
-          <em>ID: </em>
-        </span>
-        <span>{media.id}</span>
-        <span>
-          {media.title.english ? media.title.english : media.title.romaji}
-        </span>
-        <span>
-          <em>Progess: </em>
-          {progress}
-        </span>
-        <span>
-          <em>Score: </em>
-          {score}
-        </span>
-        <span>
-          <em>Status: </em>
-          {status}
-        </span>
-      </div>
+      {props.entries.map(({ media, progress, score, status }) => (
+        <>
+          <div key={media.id} className="anime">
+            <img alt="image" src={media.coverImage.large} />
+            <span>
+              <em>ID: </em>
+              <span>{media.id}</span>
+            </span>
+            <span>{isEnglish ? media.title.english : media.title.romaji}</span>
+            <span>
+              <em>Progess: </em>
+              {progress}
+            </span>
+            <span>
+              <em>Score: </em>
+              {score}
+            </span>
+            <span>
+              <em>Status: </em>
+              {status}
+            </span>
+          </div>
+        </>
+      ))}
     </>
-  ));
+  );
 };

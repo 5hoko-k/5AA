@@ -1,16 +1,16 @@
 import DisplayLibrary from "../components/DisplayLibrary";
-import Filter from "../components/Filter";
 import { createContext, useContext, useState } from "react";
 
-const TitleLanguage = createContext("english");
+export const TitleLanguage = createContext("english");
 
 export default function Library() {
+  const [isEnglish, setIsEnglish] = useState(true);
   return (
     <>
-      <Filter />
-      <TitleLanguage.Provider value="english">
-        <DisplayLibrary />
-      </TitleLanguage.Provider>
+          <TitleLanguage.Provider value={{ isEnglish, setIsEnglish }}>
+          <DisplayLibrary />
+          </TitleLanguage.Provider>
+
     </>
   );
 }

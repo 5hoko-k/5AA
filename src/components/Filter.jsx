@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { TitleLanguage } from "../pages/Library";
 
 const Filter = () => {
-  const [animeTitleLanguage, setAnimeTitleLanguage] = useState("english");
+  const {isEnglish, setIsEnglish} = useContext(TitleLanguage)
 
   const handleTitleChange = () => {
-    if (titleLangeage !== "english") {
-      setAnimeTitleLanguage("english");
-    } else if (titleLangeage === "english") {
-      setAnimeTitleLanguage("romaji");
+    if (isEnglish !== true) {
+      setIsEnglish(true);
+    } else if (isEnglish === true) {
+      setIsEnglish(false);
     }
   };
 
@@ -27,7 +28,7 @@ const Filter = () => {
         <br />
 
         <button onClick={handleTitleChange}>
-          {animeTitleLanguage === "english" ? "English" : "Romaji"}
+          { isEnglish ? "English" : "Romaji"}
         </button>
         <input type="submit" value="Filter" />
       </form>
