@@ -1,14 +1,12 @@
-import { useContext } from "react";
-import { TitleLanguage } from "../pages/Library";
 
-const Filter = () => {
-  const {isEnglish, setIsEnglish} = useContext(TitleLanguage)
+
+const Filter = (props) => {
 
   const handleTitleChange = () => {
-    if (isEnglish !== true) {
-      setIsEnglish(true);
-    } else if (isEnglish === true) {
-      setIsEnglish(false);
+    if (props.isEnglish !== true) {
+      props.setIsEnglish(true);
+    } else if (props.isEnglish === true) {
+      props.setIsEnglish(false);
     }
   };
 
@@ -28,7 +26,7 @@ const Filter = () => {
         <br />
 
         <button onClick={handleTitleChange}>
-          { isEnglish ? "English" : "Romaji"}
+          { props.isEnglish ? "English" : "Romaji"}
         </button>
         <input type="submit" value="Filter" />
       </form>

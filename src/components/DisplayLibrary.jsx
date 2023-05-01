@@ -1,51 +1,22 @@
-import { useQuery, gql } from "@apollo/client";
 import "../styles/ListStyles.css";
-import { useContext, useState } from "react";
-import { TitleLanguage } from "../pages/Library";
+import { useState } from "react";
 import Filter from "../components/Filter";
 
-var query = gql`
-  query {
-    MediaListCollection(userName: "5hoko", type: ANIME, sort: STATUS) {
-      lists {
-        entries {
-          media {
-            id
-            title {
-              romaji
-              english
-              native
-            }
-            coverImage {
-              large
-            }
-          }
-          status
-          score
-          progress
-        }
-      }
-    }
-  }
-`;
-
-function DisplayLibrary() {
-  const { loading, error, data } = useQuery(query);
- 
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+function DisplayLibrary(props) {
+  const [isEnglish, setIsEnglish] = useState(true);
 
   return (
     <>
+      <Filter isEnglish={isEnglish} setIsEnglish={setIsEnglish} />
 
-        <Filter />
-        {data.MediaListCollection.lists.map(({ entries }) => (
+      {props.loading && <p>Loading...</p>}
+      {props.error && <p>Error : {error.message}</p>}
+      {props.data &&
+        props.data.MediaListCollection.lists.map(({ entries }) => (
           <div className="library">
-            <DisplayAnime entries={entries} />
+            <DisplayAnime entries={entries} isEnglish={isEnglish} />
           </div>
         ))}
-
     </>
   );
 }
@@ -53,7 +24,6 @@ function DisplayLibrary() {
 export default DisplayLibrary;
 
 const DisplayAnime = (props) => {
-  const { isEnglish } = useContext(TitleLanguage)
   return (
     <>
       {props.entries.map(({ media, progress, score, status }) => (
@@ -64,7 +34,9 @@ const DisplayAnime = (props) => {
               <em>ID: </em>
               <span>{media.id}</span>
             </span>
-            <span>{isEnglish ? media.title.english : media.title.romaji}</span>
+            <span>
+              {props.isEnglish ? media.title.english : media.title.romaji}
+            </span>
             <span>
               <em>Progess: </em>
               {progress}
