@@ -1,6 +1,21 @@
 import "../styles/Filter.css";
+import { useQuery, gql } from "@apollo/client";
+const query = gql`
+  query {
+    User(id: 853967) {
+      statistics {
+        anime {
+          genres(sort: COUNT_DESC) {
+            genre
+          }
+        }
+      }
+    }
+  }
+`;
 
 const Filter = (props) => {
+  const { loaging, error, data } = useQuery(query);
   return (
     <>
       <form className="filter-form">
@@ -13,6 +28,16 @@ const Filter = (props) => {
             <option value="PLANNING">Planning</option>
             <option value="DROPPED">Dropped</option>
             <option value="PAUSED">Paused</option>
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="genre">Genre:</label>
+          <select id="genre" name="genre">
+            <option value="">All</option>
+            {data.User.statistics.anime.genres.map(({ genre }) => (
+              <option value={genre}>{genre}</option>
+            ))}
           </select>
         </div>
 
