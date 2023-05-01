@@ -2,14 +2,6 @@
 
 const Filter = (props) => {
 
-  const handleTitleChange = () => {
-    if (props.isEnglish !== true) {
-      props.setIsEnglish(true);
-    } else if (props.isEnglish === true) {
-      props.setIsEnglish(false);
-    }
-  };
-
   return (
     <>
       <form>
@@ -25,9 +17,6 @@ const Filter = (props) => {
         <br />
         <br />
 
-        <button onClick={handleTitleChange}>
-          { props.isEnglish ? "English" : "Romaji"}
-        </button>
         <input type="submit" value="Filter" />
       </form>
     </>
