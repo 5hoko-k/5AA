@@ -1,16 +1,38 @@
 import DisplayLibrary from "../components/DisplayLibrary";
-import { createContext, useContext, useState } from "react";
+import { useQuery, gql } from "@apollo/client";
 
-export const TitleLanguage = createContext("english");
+var query = gql`
+  query {
+    MediaListCollection(userName: "5hoko", type: ANIME, sort: STATUS) {
+      lists {
+        entries {
+          media {
+            id
+            title {
+              romaji
+              english
+              native
+            }
+            coverImage {
+              large
+            }
+          }
+          status
+          score
+          progress
+        }
+      }
+    }
+  }
+`;
+
 
 export default function Library() {
-  const [isEnglish, setIsEnglish] = useState(true);
+  const { loading, error, data } = useQuery(query);
+
   return (
     <>
-          <TitleLanguage.Provider value={{ isEnglish, setIsEnglish }}>
-          <DisplayLibrary />
-          </TitleLanguage.Provider>
-
+      <DisplayLibrary loading={loading} error={error} data={data}/>
     </>
   );
 }
