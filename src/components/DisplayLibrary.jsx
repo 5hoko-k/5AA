@@ -1,20 +1,20 @@
 import "../styles/ListStyles.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Filter from "../components/Filter";
+import { TitleIsEnglish } from "../App";
 
 function DisplayLibrary(props) {
-  const [isEnglish, setIsEnglish] = useState(true);
 
   return (
     <>
-      <Filter isEnglish={isEnglish} setIsEnglish={setIsEnglish} />
+      <Filter />
 
       {props.loading && <p>Loading...</p>}
       {props.error && <p>Error : {error.message}</p>}
       {props.data &&
         props.data.MediaListCollection.lists.map(({ entries }) => (
           <div className="library">
-            <DisplayAnime entries={entries} isEnglish={isEnglish} />
+            <DisplayAnime entries={entries} />
           </div>
         ))}
     </>
@@ -24,6 +24,7 @@ function DisplayLibrary(props) {
 export default DisplayLibrary;
 
 const DisplayAnime = (props) => {
+  const isEnglish = useContext(TitleIsEnglish)
   return (
     <>
       {props.entries.map(({ media, progress, score, status }) => (
@@ -35,7 +36,7 @@ const DisplayAnime = (props) => {
               <span>{media.id}</span>
             </span>
             <span>
-              {props.isEnglish ? media.title.english : media.title.romaji}
+              {isEnglish ? media.title.english : media.title.romaji}
             </span>
             <span>
               <em>Progess: </em>
