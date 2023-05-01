@@ -12,8 +12,8 @@ function DisplayLibrary(props) {
       {props.loading && <p>Loading...</p>}
       {props.error && <p>Error : {error.message}</p>}
       {props.data &&
-        props.data.MediaListCollection.lists.map(({ entries }) => (
-          <div className="library">
+        props.data.MediaListCollection.lists.map(({ index, entries }) => (
+          <div key={index} className="library">
             <DisplayAnime entries={entries} />
           </div>
         ))}
@@ -27,9 +27,9 @@ const DisplayAnime = (props) => {
   const isEnglish = useContext(TitleIsEnglish)
   return (
     <>
-      {props.entries.map(({ media, progress, score, status }) => (
+      {props.entries.map(({ mediaId, media, progress, score, status }) => (
         <>
-          <div key={media.id} className="anime">
+          <div key={mediaId} className="anime">
             <img alt="image" src={media.coverImage.large} />
             <span>
               <em>ID: </em>
