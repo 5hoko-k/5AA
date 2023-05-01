@@ -6,6 +6,7 @@ var query = gql`
     MediaListCollection(userName: "5hoko", type: ANIME, sort: STATUS) {
       lists {
         entries {
+          mediaId
           media {
             id
             title {
@@ -26,13 +27,12 @@ var query = gql`
   }
 `;
 
-
 export default function Library() {
   const { loading, error, data } = useQuery(query);
 
   return (
     <>
-      <DisplayLibrary loading={loading} error={error} data={data}/>
+      <DisplayLibrary loading={loading} error={error} data={data} />
     </>
   );
 }
