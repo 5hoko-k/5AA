@@ -10,6 +10,7 @@ import {
 } from "@apollo/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import Footer from "./components/Footer";
 
 const client = new ApolloClient({
   uri: "https://graphql.anilist.co",
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <NavBar />
         <App />
+        <Footer />
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>
