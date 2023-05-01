@@ -1,18 +1,31 @@
-import "../styles/Footer.css"
+import { useContext } from "react";
+import "../styles/Footer.css";
+import { TitleIsEnglish, SetTitleIsEnglish } from "../App";
 function Footer() {
-    return (
-        <>
-            <footer>
-                <nav>
-                    <ul>
-                    <li>link</li>
-                    <li>link</li>
-                    <li>link</li>
-                    </ul>
-                </nav>
-            </footer>
-        </>
-    )
+const isEnglish = useContext(TitleIsEnglish)
+const setEnglish = useContext(SetTitleIsEnglish)
+
+  const handleTitleChange = () => {
+    setEnglish(!isEnglish)
+    console.log(isEnglish)
+  };
+  return (
+    <>
+      <footer>
+        <nav>
+          <ul>
+            <li>link</li>
+            <li>
+              <button onClick={handleTitleChange}>
+                {isEnglish ? "English" : "Romaji"}
+              </button>
+            </li>
+            <li>link</li>
+          </ul>
+        </nav>
+      </footer>
+    </>
+  );
 }
 
 export default Footer;
