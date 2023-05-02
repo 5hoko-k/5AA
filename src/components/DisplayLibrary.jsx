@@ -61,27 +61,11 @@ const DisplayAnime = (props) => {
                   style={{ backgroundColor: "orange" }}
                 ></span>
               )}
-
-
-              <span class="badge top-right"></span>
             </div>
-
-            <span>
-              <em>ID: </em>
-              <span>{media.id}</span>
-            </span>
-            <span>{isEnglish ? media.title.english : media.title.romaji}</span>
+            <span>{isEnglish ? (media.title.english ? media.title.english : media.title.romaji) : media.title.romaji}</span>
             <span>
               <em>Progess: </em>
               {progress}
-            </span>
-            <span>
-              <em>Score: </em>
-              {score}
-            </span>
-            <span>
-              <em>Status: </em>
-              {status}
             </span>
           </div>
         </>
