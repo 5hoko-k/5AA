@@ -12,7 +12,7 @@ function DisplayLibrary(props) {
       {props.error && <p>Error : {error.message}</p>}
       {props.data &&
         props.data.MediaListCollection.lists.map(({ index, entries }) => (
-          <div key={index} className="library">
+          <div key={index} className="gallery" >
             <DisplayAnime entries={entries} />
           </div>
         ))}
@@ -28,7 +28,7 @@ const DisplayAnime = (props) => {
     <>
       {props.entries.map(({ mediaId, media, progress, score, status }) => (
         <>
-          <div key={mediaId} className="anime">
+          <div key={mediaId} className="">
             <div class="image-container">
               <img alt="image" src={media.coverImage.large} />
               {status === "CURRENT" && (

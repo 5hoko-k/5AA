@@ -41,7 +41,7 @@ function DisplayProgress() {
   if (error) return <p>Error : {error.message}</p>;
 
   return data.MediaListCollection.lists.map(({ name, entries }) => (
-    <div key={name} className="library">
+    <div key={name} className="gallery">
       <DisplayAnimeProgress entries={entries} />
     </div>
   ));
@@ -52,8 +52,8 @@ export default DisplayProgress;
 const DisplayAnimeProgress = (props) => {
   return props.entries.map(({ id, progress, media, episodes }) => (
     <>
-      <div key={id} className="anime">
-        <img className='ProgressImg' alt="image" src={media.coverImage.large} />
+      <div key={id} className="">
+        <img className='' alt="image" src={media.coverImage.large} />
         <span>
           <em>ID: </em>
         </span>
