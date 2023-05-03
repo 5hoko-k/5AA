@@ -16,6 +16,7 @@ var query = gql`
         entries {
           id
           progress
+          status
           updatedAt
           media {
             id
@@ -28,7 +29,6 @@ var query = gql`
               medium
               large
             }
-            bannerImage
           }
         }
       }
@@ -54,10 +54,71 @@ export default DisplayProgress;
 const DisplayAnimeProgress = (props) => {
   const isEnglish = useContext(TitleIsEnglish);
 
-  return props.entries.map(({ id, progress, media, episodes }) => (
+  return props.entries.map(({ id, progress, media, episodes, status }) => (
     <>
       <div key={id} className="">
-        <img className="" alt="image" src={media.coverImage.large} />
+        <div className="image-container">
+          <img className="" alt="image" src={media.coverImage.large} />
+          {status === "CURRENT" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "blue" }}
+            ></span>
+          )}              {status === "CURRENT" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "blue" }}
+            ></span>
+          )}
+          {status === "COMPLETED" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "#008000" }}
+            ></span>
+          )}
+          {status === "PLANNING" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "pink" }}
+            ></span>
+          )}
+          {status === "DROPPED" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "red" }}
+            ></span>
+          )}
+          {status === "PAUSED" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "orange" }}
+            ></span>
+          )}
+          {status === "COMPLETED" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "#008000" }}
+            ></span>
+          )}
+          {status === "PLANNING" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "pink" }}
+            ></span>
+          )}
+          {status === "DROPPED" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "red" }}
+            ></span>
+          )}
+          {status === "PAUSED" && (
+            <span
+              className="badge top-right"
+              style={{ backgroundColor: "orange" }}
+            ></span>
+          )}
+        </div>
         <span>
           <em>ID: </em>
         </span>
