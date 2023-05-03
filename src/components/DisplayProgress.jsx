@@ -1,5 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import "../styles/ListStyles.css";
+import { TitleIsEnglish } from "../App";
+import { useContext } from "react";
 
 var query = gql`
   query {
@@ -50,16 +52,22 @@ function DisplayProgress() {
 export default DisplayProgress;
 
 const DisplayAnimeProgress = (props) => {
+  const isEnglish = useContext(TitleIsEnglish);
+
   return props.entries.map(({ id, progress, media, episodes }) => (
     <>
       <div key={id} className="">
-        <img className='' alt="image" src={media.coverImage.large} />
+        <img className="" alt="image" src={media.coverImage.large} />
         <span>
           <em>ID: </em>
         </span>
         <span>{media.id}</span>
         <span>
-          {media.title.english ? media.title.english : media.title.romaji}
+          {isEnglish
+            ? media.title.english
+              ? media.title.english
+              : media.title.romaji
+            : media.title.romaji}
         </span>
         <span>
           <em>Progess: </em>
