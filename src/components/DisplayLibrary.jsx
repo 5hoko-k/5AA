@@ -37,10 +37,10 @@ const DisplayAnime = (props) => {
                   style={{ backgroundColor: "blue" }}
                 ></span>
               )}
-              {status === "COMPLETE" && (
+              {status === "COMPLETED" && (
                 <span
                   className="badge top-right"
-                  style={{ backgroundColor: "green" }}
+                  style={{ backgroundColor: "#008000" }}
                 ></span>
               )}
               {status === "PLANNING" && (

@@ -17,7 +17,7 @@ const query = gql`
   }
 `;
 
-const Filter = (props) => {
+const Filter = () => {
   const { loading, error, data } = useQuery(query);
   return (
     <>
