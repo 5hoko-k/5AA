@@ -9,6 +9,8 @@ var query = gql`
           mediaId
           media {
             id
+            genres
+            format
             title {
               romaji
               english
