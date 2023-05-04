@@ -11,6 +11,7 @@ var query = gql`
             id
             genres
             format
+            popularity
             title {
               romaji
               english

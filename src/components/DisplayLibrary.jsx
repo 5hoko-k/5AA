@@ -8,6 +8,14 @@ function DisplayLibrary(props) {
   const [format, setFormat] = useState();
   const [status, setStatus] = useState();
 
+  if (props.loading) return <p>Loading...</p>;
+  if (props.error) return <p>Error : {error.message}</p>;
+
+  const listEntries = props.data.MediaListCollection.lists.map(({ entries }) => {
+    const sortedEntries = [...entries].sort((a, b) => b.media.popularity - a.media.popularity);
+    return { entries: sortedEntries };
+  });
+
   const onFilter = (genre, status, format) => {
     setGenre(genre);
     setStatus(status);
@@ -21,8 +29,9 @@ function DisplayLibrary(props) {
       {props.loading && <p>Loading...</p>}
       {props.error && <p>Error : {error.message}</p>}
       {props.data &&
-        props.data.MediaListCollection.lists.map(({ index, entries }) => (
+        listEntries.map(({ index, entries }) => (
           <div key={index} className="gallery">
+            {console.log(entries)}
             <DisplayAnime entries={entries} genre={genre} status={status} format={format}/>
           </div>
         ))}
@@ -51,7 +60,7 @@ const DisplayAnime = (props) => {
   });
   return (
     <>
-      {filteredEntries.map(({ mediaId, media, progress, score, status }) => (
+      {filteredEntries.map(({ mediaId, media, progress, status }) => (
         <>
           <div key={mediaId} className="">
             <div class="image-container">
@@ -94,9 +103,13 @@ const DisplayAnime = (props) => {
                   : media.title.romaji
                 : media.title.romaji}
             </span>
-            <span>
+            {status === 'CURRENT' && <span>
               <em>Progess: </em>
               {progress}
+            </span>}
+            <span>
+              <em>Popularity: </em>
+              {media.popularity}
             </span>
           </div>
         </>
