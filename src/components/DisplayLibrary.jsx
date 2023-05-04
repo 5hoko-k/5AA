@@ -107,10 +107,6 @@ const DisplayAnime = (props) => {
               <em>Progess: </em>
               {progress}
             </span>}
-            <span>
-              <em>Popularity: </em>
-              {media.popularity}
-            </span>
           </div>
         </>
       ))}
