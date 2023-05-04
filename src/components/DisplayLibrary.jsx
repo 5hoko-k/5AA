@@ -10,11 +10,8 @@ function DisplayLibrary(props) {
 
   const onFilter = (genre, status, format) => {
     setGenre(genre);
-    console.log(genre)
     setStatus(status);
-    console.log(status)
     setFormat(format);
-    console.log(format)
   };
 
   return (
