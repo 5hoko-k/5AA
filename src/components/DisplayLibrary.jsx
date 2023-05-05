@@ -2,6 +2,7 @@ import "../styles/ListStyles.css";
 import { useContext, useState } from "react";
 import Filter from "../components/Filter";
 import { TitleIsEnglish } from "../App";
+import { Link } from "react-router-dom";
 
 function DisplayLibrary(props) {
   const [genre, setGenre] = useState();
@@ -11,10 +12,14 @@ function DisplayLibrary(props) {
   if (props.loading) return <p>Loading...</p>;
   if (props.error) return <p>Error : {error.message}</p>;
 
-  const listEntries = props.data.MediaListCollection.lists.map(({ entries }) => {
-    const sortedEntries = [...entries].sort((a, b) => b.media.popularity - a.media.popularity);
-    return { entries: sortedEntries };
-  });
+  const listEntries = props.data.MediaListCollection.lists.map(
+    ({ entries }) => {
+      const sortedEntries = [...entries].sort(
+        (a, b) => b.media.popularity - a.media.popularity
+      );
+      return { entries: sortedEntries };
+    }
+  );
 
   const onFilter = (genre, status, format) => {
     setGenre(genre);
@@ -31,8 +36,12 @@ function DisplayLibrary(props) {
       {props.data &&
         listEntries.map(({ index, entries }) => (
           <div key={index} className="gallery">
-            {console.log(entries)}
-            <DisplayAnime entries={entries} genre={genre} status={status} format={format}/>
+            <DisplayAnime
+              entries={entries}
+              genre={genre}
+              status={status}
+              format={format}
+            />
           </div>
         ))}
     </>
@@ -64,7 +73,9 @@ const DisplayAnime = (props) => {
         <>
           <div key={mediaId} className="">
             <div class="image-container">
-              <img alt="image" src={media.coverImage.large} />
+              <Link to="/anime">
+                <img alt="image" src={media.coverImage.large} />
+              </Link>
               {status === "CURRENT" && (
                 <span
                   className="badge top-right"
@@ -103,10 +114,12 @@ const DisplayAnime = (props) => {
                   : media.title.romaji
                 : media.title.romaji}
             </span>
-            {status === 'CURRENT' && <span>
-              <em>Progess: </em>
-              {progress}
-            </span>}
+            {status === "CURRENT" && (
+              <span>
+                <em>Progess: </em>
+                {progress}
+              </span>
+            )}
           </div>
         </>
       ))}
