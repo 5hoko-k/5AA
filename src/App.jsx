@@ -23,8 +23,10 @@ export default function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/library" element={<Library />} />
-            <Route path="/library/:animeId" element={<Anime />} />
+            <Route path="/library">
+              <Route index element={<Library />} />
+              <Route path=":animeId" element={<Anime />} />
+            </Route>
             <Route path="/about" element={<About />} />
           </Routes>
           <Footer />
