@@ -73,7 +73,7 @@ const DisplayAnime = (props) => {
         <>
           <div key={mediaId} className="">
             <div class="image-container">
-              <Link to="/library/{mediaId}">
+              <Link to={`/library/${mediaId}`}>
                 <img alt="image" src={media.coverImage.large} />
               </Link>
               {status === "CURRENT" && (
