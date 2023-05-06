@@ -24,8 +24,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/library" element={<Library />} />
+            <Route path="/library/:animeId" element={<Anime />} />
             <Route path="/about" element={<About />} />
-            <Route path="/anime" element={<Anime />} />
           </Routes>
           <Footer />
         </SetTitleIsEnglish.Provider>
