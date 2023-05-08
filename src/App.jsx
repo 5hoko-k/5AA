@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import React, { createContext, useContext, useState } from "react";
 import Anime from "./pages/Anime";
+import Container from "@mui/material/Container";
 
 export const TitleIsEnglish = createContext(true);
 export const SetTitleIsEnglish = createContext(() => {});
@@ -21,14 +22,16 @@ export default function App() {
       <TitleIsEnglish.Provider value={isEnglish}>
         <SetTitleIsEnglish.Provider value={setEnglish}>
           <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/library">
-              <Route index element={<Library />} />
-              <Route path=":animeId" element={<Anime />} />
-            </Route>
-            <Route path="/about" element={<About />} />
-          </Routes>
+          <Container maxWidth="md">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/library">
+                <Route index element={<Library />} />
+                <Route path=":animeId" element={<Anime />} />
+              </Route>
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </Container>
           <Footer />
         </SetTitleIsEnglish.Provider>
       </TitleIsEnglish.Provider>
