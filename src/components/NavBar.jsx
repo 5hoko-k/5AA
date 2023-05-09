@@ -14,8 +14,8 @@ function NavBar() {
                     </ul>
                 </nav>
             </header> */}
-      <AppBar>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'center', gap: '30px', padding: '20px 50px' }} > 
+      <AppBar position="static">
+        <Toolbar sx={{ display: 'flex', justifyContent: 'center', gap: '30px', padding: '20px 50px',  }} > 
           <Button component={Link} to="/" color="inherit">
             <Typography variant="h6">Home</Typography>
           </Button>
