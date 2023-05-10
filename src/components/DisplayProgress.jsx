@@ -2,10 +2,11 @@ import { useQuery, gql } from "@apollo/client";
 // import "../styles/ListStyles.css";
 import { TitleIsEnglish } from "../App";
 import { useContext } from "react";
-import Typography from '@mui/material/Typography';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Card from '@mui/material/Card';
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
 
 var query = gql`
   query {
@@ -47,9 +48,9 @@ function DisplayProgress() {
   if (error) return <p>Error : {error.message}</p>;
 
   return data.MediaListCollection.lists.map(({ name, entries }) => (
-    <div key={name} className="gallery">
-      <DisplayAnimeProgress entries={entries} />
-    </div>
+      <Grid container key={name} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <DisplayAnimeProgress entries={entries} />
+      </Grid>
   ));
 }
 
@@ -60,8 +61,7 @@ const DisplayAnimeProgress = (props) => {
 
   return props.entries.map(({ id, progress, media, status }) => (
     <>
-      <div key={id} className="">
-        {/* <div className="image-container">
+      {/* <div className="image-container">
           <img className="" alt="image" src={media.coverImage.large} />
           {status === "CURRENT" && (
             <span
@@ -141,6 +141,7 @@ const DisplayAnimeProgress = (props) => {
         </span> / 
         <span>{media.episodes}</span> */}
 
+      <Grid item key={id} xs={3}>
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
             component="img"
@@ -168,7 +169,7 @@ const DisplayAnimeProgress = (props) => {
             </Typography>
           </CardContent>
         </Card>
-      </div>
+      </Grid>
     </>
   ));
 };
