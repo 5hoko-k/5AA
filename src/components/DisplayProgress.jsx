@@ -152,7 +152,6 @@ const DisplayAnimeProgress = (props) => {
                   : media.title.romaji
                 : media.title.romaji
             }
-            height="140"
             image={media.coverImage.large}
           />
           <CardContent>
