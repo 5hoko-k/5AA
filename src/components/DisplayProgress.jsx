@@ -1,7 +1,11 @@
 import { useQuery, gql } from "@apollo/client";
-import "../styles/ListStyles.css";
+// import "../styles/ListStyles.css";
 import { TitleIsEnglish } from "../App";
 import { useContext } from "react";
+import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Card from '@mui/material/Card';
 
 var query = gql`
   query {
@@ -54,17 +58,18 @@ export default DisplayProgress;
 const DisplayAnimeProgress = (props) => {
   const isEnglish = useContext(TitleIsEnglish);
 
-  return props.entries.map(({ id, progress, media, episodes, status }) => (
+  return props.entries.map(({ id, progress, media, status }) => (
     <>
       <div key={id} className="">
-        <div className="image-container">
+        {/* <div className="image-container">
           <img className="" alt="image" src={media.coverImage.large} />
           {status === "CURRENT" && (
             <span
               className="badge top-right"
               style={{ backgroundColor: "blue" }}
             ></span>
-          )}              {status === "CURRENT" && (
+          )}{" "}
+          {status === "CURRENT" && (
             <span
               className="badge top-right"
               style={{ backgroundColor: "blue" }}
@@ -133,8 +138,36 @@ const DisplayAnimeProgress = (props) => {
         <span>
           <em>Progess: </em>
           {progress}
-        </span>
-        <span>{episodes}</span>
+        </span> / 
+        <span>{media.episodes}</span> */}
+
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            component="img"
+            alt={
+              isEnglish
+                ? media.title.english
+                  ? media.title.english
+                  : media.title.romaji
+                : media.title.romaji
+            }
+            height="140"
+            image={media.coverImage.large}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="div">
+              {isEnglish
+                ? media.title.english
+                  ? media.title.english
+                  : media.title.romaji
+                : media.title.romaji}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              <em>Progess: </em>
+              {progress}/<span>{media.episodes}</span>
+            </Typography>
+          </CardContent>
+        </Card>
       </div>
     </>
   ));
