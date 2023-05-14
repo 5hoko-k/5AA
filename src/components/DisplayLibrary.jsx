@@ -1,4 +1,3 @@
-import "../styles/ListStyles.css";
 import { useContext, useState } from "react";
 import Filter from "../components/Filter";
 import { TitleIsEnglish } from "../App";
