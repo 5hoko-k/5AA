@@ -3,6 +3,11 @@ import { useContext, useState } from "react";
 import Filter from "../components/Filter";
 import { TitleIsEnglish } from "../App";
 import { Link } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
 
 function DisplayLibrary(props) {
   const [genre, setGenre] = useState();
@@ -35,14 +40,14 @@ function DisplayLibrary(props) {
       {props.error && <p>Error : {error.message}</p>}
       {props.data &&
         listEntries.map(({ index, entries }) => (
-          <div key={index} className="gallery">
+          <Grid container key={index}>
             <DisplayAnime
               entries={entries}
               genre={genre}
               status={status}
               format={format}
             />
-          </div>
+          </Grid>
         ))}
     </>
   );
@@ -71,12 +76,46 @@ const DisplayAnime = (props) => {
     <>
       {filteredEntries.map(({ mediaId, media, progress, status }) => (
         <>
-          <div key={mediaId} className="">
-            <div class="image-container">
+          <Grid item key={mediaId} xs={6} md={3} lg={2} px={1} py={1}>
+            <Card sx={{ maxWidth: 345, height: "100%" }}>
               <Link to={`/library/${mediaId}`}>
-                <img alt="image" src={media.coverImage.large} />
+                <CardMedia
+                  component="img"
+                  alt={
+                    isEnglish
+                      ? media.title.english
+                        ? media.title.english
+                        : media.title.romaji
+                      : media.title.romaji
+                  }
+                  image={media.coverImage.large}
+                />
               </Link>
-              {status === "CURRENT" && (
+              <CardContent>
+                <Typography gutterBottom variant="body1" component="div">
+                  {isEnglish
+                    ? media.title.english
+                      ? media.title.english
+                      : media.title.romaji
+                    : media.title.romaji}
+                </Typography>
+                {status === "CURRENT" && (
+                  <Typography variant="caption" color="text.secondary">
+                    <em>Progess: </em>
+                    {progress}/<span>{media.episodes}</span>
+                  </Typography>
+                )}
+              </CardContent>
+            </Card>
+          </Grid>
+        </>
+      ))}
+    </>
+  );
+};
+
+{
+  /* {status === "CURRENT" && (
                 <span
                   className="badge top-right"
                   style={{ backgroundColor: "blue" }}
@@ -105,24 +144,5 @@ const DisplayAnime = (props) => {
                   className="badge top-right"
                   style={{ backgroundColor: "orange" }}
                 ></span>
-              )}
-            </div>
-            <span>
-              {isEnglish
-                ? media.title.english
-                  ? media.title.english
-                  : media.title.romaji
-                : media.title.romaji}
-            </span>
-            {status === "CURRENT" && (
-              <span>
-                <em>Progess: </em>
-                {progress}
-              </span>
-            )}
-          </div>
-        </>
-      ))}
-    </>
-  );
-};
+              )} */
+}
