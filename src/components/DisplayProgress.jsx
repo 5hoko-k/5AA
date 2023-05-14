@@ -48,9 +48,15 @@ function DisplayProgress() {
   if (error) return <p>Error : {error.message}</p>;
 
   return data.MediaListCollection.lists.map(({ name, entries }) => (
-      <Grid container key={name} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <DisplayAnimeProgress entries={entries} />
-      </Grid>
+    <Grid
+      container
+      key={name}
+      // sx={{ backgroundColor: 'red' }}
+      // rowSpacing={1}
+      // columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+    >
+      <DisplayAnimeProgress entries={entries} />
+    </Grid>
   ));
 }
 
@@ -61,7 +67,40 @@ const DisplayAnimeProgress = (props) => {
 
   return props.entries.map(({ id, progress, media, status }) => (
     <>
-      {/* <div className="image-container">
+      <Grid item key={id} xs={6} md={3} lg={2} px={1} py={1}>
+        <Card sx={{ maxWidth: 345, height: "100%" }}>
+          <CardMedia
+            component="img"
+            alt={
+              isEnglish
+                ? media.title.english
+                  ? media.title.english
+                  : media.title.romaji
+                : media.title.romaji
+            }
+            image={media.coverImage.large}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="body1" component="div">
+              {isEnglish
+                ? media.title.english
+                  ? media.title.english
+                  : media.title.romaji
+                : media.title.romaji}
+            </Typography>
+            <Typography variant="caption" color="text.secondary">
+              <em>Progess: </em>
+              {progress}/<span>{media.episodes}</span>
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+    </>
+  ));
+};
+
+{
+  /* <div className="image-container">
           <img className="" alt="image" src={media.coverImage.large} />
           {status === "CURRENT" && (
             <span
@@ -139,36 +178,5 @@ const DisplayAnimeProgress = (props) => {
           <em>Progess: </em>
           {progress}
         </span> / 
-        <span>{media.episodes}</span> */}
-
-      <Grid item key={id} xs={3}>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            alt={
-              isEnglish
-                ? media.title.english
-                  ? media.title.english
-                  : media.title.romaji
-                : media.title.romaji
-            }
-            image={media.coverImage.large}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
-              {isEnglish
-                ? media.title.english
-                  ? media.title.english
-                  : media.title.romaji
-                : media.title.romaji}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              <em>Progess: </em>
-              {progress}/<span>{media.episodes}</span>
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-    </>
-  ));
-};
+        <span>{media.episodes}</span> */
+}
