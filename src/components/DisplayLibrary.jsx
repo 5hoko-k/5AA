@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
+import { Badge } from "@mui/material";
 
 function DisplayLibrary(props) {
   const [genre, setGenre] = useState();
@@ -76,36 +77,38 @@ const DisplayAnime = (props) => {
       {filteredEntries.map(({ mediaId, media, progress, status }) => (
         <>
           <Grid item key={mediaId} xs={6} md={3} lg={2} px={1} py={1}>
-            <Card sx={{ maxWidth: 345, height: "100%" }}>
-              <Link to={`/library/${mediaId}`}>
-                <CardMedia
-                  component="img"
-                  alt={
-                    isEnglish
+            <Badge color="primary" badgeContent="">
+              <Card sx={{ maxWidth: 345, height: "100%" }}>
+                <Link to={`/library/${mediaId}`}>
+                  <CardMedia
+                    component="img"
+                    alt={
+                      isEnglish
+                        ? media.title.english
+                          ? media.title.english
+                          : media.title.romaji
+                        : media.title.romaji
+                    }
+                    image={media.coverImage.large}
+                  />
+                </Link>
+                <CardContent>
+                  <Typography gutterBottom variant="body1" component="div">
+                    {isEnglish
                       ? media.title.english
                         ? media.title.english
                         : media.title.romaji
-                      : media.title.romaji
-                  }
-                  image={media.coverImage.large}
-                />
-              </Link>
-              <CardContent>
-                <Typography gutterBottom variant="body1" component="div">
-                  {isEnglish
-                    ? media.title.english
-                      ? media.title.english
-                      : media.title.romaji
-                    : media.title.romaji}
-                </Typography>
-                {status === "CURRENT" && (
-                  <Typography variant="caption" color="text.secondary">
-                    <em>Progess: </em>
-                    {progress}/<span>{media.episodes}</span>
+                      : media.title.romaji}
                   </Typography>
-                )}
-              </CardContent>
-            </Card>
+                  {status === "CURRENT" && (
+                    <Typography variant="caption" color="text.secondary">
+                      <em>Progess: </em>
+                      {progress}/<span>{media.episodes}</span>
+                    </Typography>
+                  )}
+                </CardContent>
+              </Card>
+            </Badge>
           </Grid>
         </>
       ))}
