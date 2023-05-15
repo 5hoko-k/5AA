@@ -77,7 +77,7 @@ export default function Anime(props) {
         sx={{
           backgroundImage: `url(${bannerImage})`,
           position: 'relative',
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: "75vh",
         }}
