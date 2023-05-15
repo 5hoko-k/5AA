@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import { Box } from "@mui/material";
 
 const query = gql`
   query ($id: Int) {
@@ -72,7 +73,17 @@ export default function Anime(props) {
 
   return (
     <>
-      <img alt="banner Image" src={bannerImage} style={{ width: "100%" }} />
+      <Box
+        component="div"
+        sx={{
+          // backgroundImage: `url(${bannerImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <img alt="banner Image" src={bannerImage} style={{ width: "100%" }} />
+      </Box>
+
       <h1>{animeId}</h1>
       {description}
     </>
