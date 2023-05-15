@@ -77,8 +77,8 @@ const DisplayAnime = (props) => {
       {filteredEntries.map(({ mediaId, media, progress, status }) => (
         <>
           <Grid item key={mediaId} xs={6} md={3} lg={2} px={1} py={1}>
-            <Badge color="primary" badgeContent="">
-              <Card sx={{ maxWidth: 345, height: "100%" }}>
+            <Badge color="primary" badgeContent="" sx={{ height: "100%" }}>
+              <Card>
                 <Link to={`/library/${mediaId}`}>
                   <CardMedia
                     component="img"
