@@ -72,12 +72,36 @@ const DisplayAnime = (props) => {
     }
     return matched;
   });
+
+  const statusColor = (status) => {
+    if (status === "CURRENT") {
+      return "blue";
+    } else if (status === "COMPLETED") {
+      return "#2E8B57";
+    } else if (status === "PLANNING") {
+      return "pink";
+    } else if (status === "DROPPED") {
+      return "red";
+    } else if (status === "PAUSED") {
+      return "orange";
+    }
+  };
+
   return (
     <>
       {filteredEntries.map(({ mediaId, media, progress, status }) => (
         <>
           <Grid item key={mediaId} xs={6} md={3} lg={2} px={1} py={1}>
-            <Badge color="primary" badgeContent="" sx={{ height: "100%" }}>
+            <Badge
+              color="primary"
+              badgeContent=""
+              sx={{
+                height: "100%",
+                "& .MuiBadge-badge": {
+                  backgroundColor: statusColor(status)
+                },
+              }}
+            >
               <Card>
                 <Link to={`/library/${mediaId}`}>
                   <CardMedia
