@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import "./styles/index.css";
+import { inject } from '@vercel/analytics';
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,6 +10,8 @@ import {
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import CssBaseline from '@mui/material/CssBaseline';
+
+inject()
 
 const client = new ApolloClient({
   uri: "https://graphql.anilist.co",
