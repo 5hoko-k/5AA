@@ -79,7 +79,7 @@ export default function Anime(props) {
           position: 'relative',
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight: "75vh",
+          minHeight: "50vh",
         }}
       >
         <Box
@@ -96,6 +96,7 @@ export default function Anime(props) {
 
       <h1>{animeId}</h1>
       {description}
+      {/* <img src={bannerImage} alt='somn' style={{ width: "100%" }}/> */}
     </>
   );
 }
