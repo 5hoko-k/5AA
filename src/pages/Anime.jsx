@@ -97,28 +97,30 @@ export default function Anime(props) {
             />
           </Box>
         </Grid>
-        <Grid item xs={3}>
-          <div style={{ position: "relative" }}>
-            <Box
-              sx={{
-                position: "absolute",
-                top: -150,
-                left: 50,
-                width: "100%",
-                objectFit: "cover",
-                zIndex: 1,
-              }}
-            >
-              <img src={coverImage.large} alt="somn" />
-            </Box>
-          </div>
-        </Grid>
-        <Grid item xs={9}>
-          <Typography
-            variant="body2"
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
-        </Grid>
+          <Grid container mx={10}>
+            <Grid item xs={3}>
+              <div style={{ position: "relative" }}>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: -150,
+                    left: 50,
+                    width: "100%",
+                    objectFit: "cover",
+                    zIndex: 1,
+                  }}
+                >
+                  <img src={coverImage.large} alt="somn" />
+                </Box>
+              </div>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography
+                variant="body2"
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
+            </Grid>
+          </Grid>
       </Grid>
       {/* <img src={bannerImage} alt='somn' style={{ width: "100%" }}/> */}
     </>
