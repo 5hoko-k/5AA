@@ -73,30 +73,32 @@ export default function Anime(props) {
 
   return (
     <>
-      <Box
-        sx={{
-          backgroundImage: `url(${bannerImage})`,
-          position: "relative",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          minHeight: "50vh",
-        }}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust the transparency as desired (0.5 = 50% opacity)
-          }}
-        />
-      </Box>
-
-      <Container maxWidth="lg" sx={{ position: "relative" }}>
-        <Grid container>
-          <Grid item xs={3}>
+      {" "}
+      <Grid container>
+        <Grid item xs={12}>
+          <Box
+            sx={{
+              backgroundImage: `url(${bannerImage})`,
+              position: "relative",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minHeight: "50vh",
+            }}
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust the transparency as desired (0.5 = 50% opacity)
+              }}
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={3}>
+          <div style={{ position: "relative" }}>
             <Box
               sx={{
                 position: "absolute",
@@ -107,20 +109,20 @@ export default function Anime(props) {
                 objectFit: "cover",
                 zIndex: 1,
                 marginTop: "-10%",
-                marginLeft: '4%'
+                marginLeft: "4%",
               }}
             >
               <img src={coverImage.large} alt="somn" />
             </Box>
-          </Grid>
-          <Grid item xs={9}>
-            <Typography
-              variant="body2"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
-          </Grid>
+          </div>
         </Grid>
-      </Container>
+        <Grid item xs={9}>
+          <Typography
+            variant="body2"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        </Grid>
+      </Grid>
       {/* <img src={bannerImage} alt='somn' style={{ width: "100%" }}/> */}
     </>
   );
