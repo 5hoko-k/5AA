@@ -1,6 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 const query = gql`
   query ($id: Int) {
@@ -76,7 +76,7 @@ export default function Anime(props) {
       <Box
         sx={{
           backgroundImage: `url(${bannerImage})`,
-          position: 'relative',
+          position: "relative",
           backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: "50vh",
@@ -94,8 +94,33 @@ export default function Anime(props) {
         />
       </Box>
 
-      <h1>{animeId}</h1>
-      {description}
+      <Container maxWidth="lg" sx={{ position: "relative" }}>
+        <Grid container>
+          <Grid item xs={3}>
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "50%",
+                objectFit: "cover",
+                zIndex: 1,
+                marginTop: "-10%",
+                marginLeft: '4%'
+              }}
+            >
+              <img src={coverImage.large} alt="somn" />
+            </Box>
+          </Grid>
+          <Grid item xs={9}>
+            <Typography
+              variant="body2"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          </Grid>
+        </Grid>
+      </Container>
       {/* <img src={bannerImage} alt='somn' style={{ width: "100%" }}/> */}
     </>
   );
