@@ -3,6 +3,7 @@ import { TitleIsEnglish } from "../App";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Container, Grid, Typography } from "@mui/material";
+import AnimeNavBar from "../components/AnimeNavBar";
 
 const query = gql`
   query ($id: Int) {
@@ -132,6 +133,9 @@ export default function Anime(props) {
               variant="body2"
               dangerouslySetInnerHTML={{ __html: description }}
             />
+          </Grid>
+          <Grid item>
+            <AnimeNavBar />
           </Grid>
         </Grid>
       </Grid>
