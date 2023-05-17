@@ -1,4 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
+import { TitleIsEnglish } from "../App";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Container, Grid, Typography } from "@mui/material";
 
@@ -52,6 +54,7 @@ const query = gql`
 `;
 
 export default function Anime(props) {
+  const isEnglish = useContext(TitleIsEnglish);
   const { animeId } = useParams();
   const variables = { id: animeId };
 
@@ -97,33 +100,37 @@ export default function Anime(props) {
             />
           </Box>
         </Grid>
-          <Grid container mx={10}>
-            <Grid item xs={3}>
-              <div style={{ position: "relative" }}>
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: -100,
-                    left: 25,
-                    width: "100%",
-                    objectFit: "cover",
-                    zIndex: 1,
-                  }}
-                >
-                  <img src={coverImage.large} alt="somn" />
-                </Box>
-              </div>
-            </Grid>
-            <Grid item xs={9} py={3} px={2}>
-              <Typography variant='h5' mb={2}>
-                {title.english}
-              </Typography>
-              <Typography
-                variant="body2"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            </Grid>
+        <Grid container mx={10}>
+          <Grid item xs={3}>
+            <div style={{ position: "relative" }}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: -100,
+                  left: 25,
+                  width: "100%",
+                  objectFit: "cover",
+                  zIndex: 1,
+                }}
+              >
+                <img src={coverImage.large} alt="somn" />
+              </Box>
+            </div>
           </Grid>
+          <Grid item xs={9} py={3} px={2}>
+            <Typography variant="h5" mb={2}>
+              {isEnglish
+                ? title.english
+                  ? title.english
+                  : title.romaji
+                : title.romaji}
+            </Typography>
+            <Typography
+              variant="body2"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          </Grid>
+        </Grid>
       </Grid>
       {/* <img src={bannerImage} alt='somn' style={{ width: "100%" }}/> */}
     </>
