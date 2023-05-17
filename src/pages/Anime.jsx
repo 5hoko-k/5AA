@@ -13,6 +13,7 @@ const query = gql`
       }
       bannerImage
       coverImage {
+        extraLarge
         large
       }
       description(asHtml: false)
@@ -108,12 +109,14 @@ export default function Anime(props) {
                   position: "absolute",
                   top: -100,
                   left: 25,
-                  width: "100%",
+                  width: '230px',
+                  height: '327px',
                   objectFit: "cover",
+                  overflow: 'hidden',
                   zIndex: 1,
                 }}
               >
-                <img src={coverImage.large} alt="somn" />
+                <img src={coverImage.extraLarge} alt="somn" style={{ width: '100%', height: '100%', objectFit: 'cover' }}/>
               </Box>
             </div>
           </Grid>
