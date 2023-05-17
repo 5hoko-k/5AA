@@ -102,7 +102,7 @@ export default function Anime(props) {
             />
           </Box>
         </Grid>
-        <Grid container mx={10}>
+        <Grid container mx={10} justifyContent="flex-end">
           <Grid item xs={3}>
             <div style={{ position: "relative" }}>
               <Box
@@ -134,12 +134,11 @@ export default function Anime(props) {
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={9} py={3} px={2}>
             <AnimeNavBar />
           </Grid>
         </Grid>
       </Grid>
-      {/* <img src={bannerImage} alt='somn' style={{ width: "100%" }}/> */}
     </>
   );
 }
