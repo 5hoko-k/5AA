@@ -115,6 +115,7 @@ export default function Anime(props) {
                   objectFit: "cover",
                   overflow: 'hidden',
                   zIndex: 1,
+                  borderRadius: '5px'
                 }}
               >
                 <img src={coverImage.extraLarge} alt="somn" style={{ width: '100%', height: '100%', objectFit: 'cover' }}/>
