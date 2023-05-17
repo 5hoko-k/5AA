@@ -13,7 +13,7 @@ const query = gql`
       coverImage {
         large
       }
-      description(asHtml: true)
+      description(asHtml: false)
       averageScore
       episodes
       streamingEpisodes {
@@ -103,8 +103,8 @@ export default function Anime(props) {
                 <Box
                   sx={{
                     position: "absolute",
-                    top: -150,
-                    left: 50,
+                    top: -100,
+                    left: 25,
                     width: "100%",
                     objectFit: "cover",
                     zIndex: 1,
@@ -114,7 +114,10 @@ export default function Anime(props) {
                 </Box>
               </div>
             </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={9} py={3} px={2}>
+              <Typography variant='h5' mb={2}>
+                {title.english}
+              </Typography>
               <Typography
                 variant="body2"
                 dangerouslySetInnerHTML={{ __html: description }}
