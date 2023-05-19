@@ -110,15 +110,19 @@ export default function Anime(props) {
                   position: "absolute",
                   top: -100,
                   left: 25,
-                  width: '230px',
-                  height: '327px',
+                  width: "230px",
+                  height: "327px",
                   objectFit: "cover",
-                  overflow: 'hidden',
+                  overflow: "hidden",
                   zIndex: 1,
-                  borderRadius: '5px'
+                  borderRadius: "5px",
                 }}
               >
-                <img src={coverImage.extraLarge} alt="somn" style={{ width: '100%', height: '100%', objectFit: 'cover' }}/>
+                <img
+                  src={coverImage.extraLarge}
+                  alt="somn"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               </Box>
             </div>
           </Grid>
@@ -136,7 +140,14 @@ export default function Anime(props) {
             />
           </Grid>
           <Grid item xs={9} py={3} px={2}>
-            <AnimeNavBar />
+            <AnimeNavBar
+              averageScore={averageScore}
+              totalEpisodes={totalEpisodes}
+              genres={genres}
+              tags={tags}
+              episodes={episodes}
+              characters={characters}
+            />
           </Grid>
         </Grid>
       </Grid>
