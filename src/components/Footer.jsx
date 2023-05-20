@@ -7,7 +7,6 @@ const setEnglish = useContext(SetTitleIsEnglish)
 
   const handleTitleChange = () => {
     setEnglish(!isEnglish)
-    console.log(isEnglish)
   };
   return (
     <>
