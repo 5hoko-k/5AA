@@ -1,9 +1,11 @@
 import { useQuery, gql } from "@apollo/client";
 import { TitleIsEnglish } from "../App";
-import { useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import AnimeNavBar from "../components/AnimeNavBar";
+
+export const AnimeData = createContext({});
 
 const query = gql`
   query ($id: Int) {
@@ -140,14 +142,18 @@ export default function Anime(props) {
             />
           </Grid>
           <Grid item xs={9} py={3} px={2}>
-            <AnimeNavBar
-              averageScore={averageScore}
-              totalEpisodes={totalEpisodes}
-              genres={genres}
-              tags={tags}
-              episodes={episodes}
-              characters={characters}
-            />
+            <AnimeData.Provider
+              value={{
+                averageScore: averageScore,
+                totalEpisodes: totalEpisodes,
+                genres: genres,
+                tags: tags,
+                episodes: episodes,
+                characters: characters,
+              }}
+            >
+              <AnimeNavBar />
+            </AnimeData.Provider>
           </Grid>
         </Grid>
       </Grid>
