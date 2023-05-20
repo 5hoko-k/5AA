@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Library from "./pages/Library";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import Anime from "./pages/Anime";
 import Container from "@mui/material/Container";
 
