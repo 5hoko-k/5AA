@@ -10,20 +10,18 @@ export default function Characters() {
       <Grid container>
         {characters.edges.map(({ node, voiceActors }) =>
           voiceActors.map(({ image, name }) => (
-            <Grid item>
-              <img
-                src={node.image.medium}
-                alt={node.name.full}
-              />
+            <Grid item container xs={6} sx={{ justifyContent: "space-between" }}>
+              <Grid item>
+                <img src={node.image.medium} alt={node.name.full} />
 
-              <Typography variant="body2">{node.name.full}</Typography>
+                <Typography variant="body2">{node.name.full}</Typography>
+              </Grid>
 
-              <Typography variant="body2">{name.full}</Typography>
+              <Grid item>
+                <Typography variant="body2">{name.full}</Typography>
 
-              <img
-                src={image.medium}
-                alt={name.full}
-              />
+                <img src={image.medium} alt={name.full} />
+              </Grid>
             </Grid>
           ))
         )}
