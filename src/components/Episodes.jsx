@@ -1,12 +1,34 @@
 import { useContext } from "react";
 import { AnimeData } from "../pages/Anime";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
 
 export default function Episodes() {
-    const { averageScore, totalEpisodes, genres, tags, episodes, characters } =
-    useContext(AnimeData);
-    return (
-        <>
-        
-        </>
-    )
+  const { totalEpisodes, episodes } = useContext(AnimeData);
+  console.log(episodes);
+  console.log(totalEpisodes);
+  return (
+    <>
+      <Grid container spacing={2}>
+        {episodes.map(({ thumbnail, title, url }) => (
+          <Grid item xs={4}>
+            <Card>
+              <CardActionArea>
+                <CardMedia component="img" image={thumbnail} />
+                <CardContent>
+                  <Typography variant="body2">{title}</Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </>
+  );
 }
