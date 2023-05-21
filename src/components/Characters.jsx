@@ -15,10 +15,10 @@ export default function Characters() {
                 <img
                   src={node.image.medium}
                   alt={node.name.full}
-                  style={{ width: "50", height: "100px" }}
+                  style={{ width: "65px", height: "100px" }}
                 />
                 <Grid item> 
-                  <Typography variant="caption" p={1}>
+                  <Typography variant="caption" p={1} component="p">
                     {node.name.full}
                   </Typography>
                 </Grid>
@@ -33,10 +33,10 @@ export default function Characters() {
                 <img
                   src={image.medium}
                   alt={name.full}
-                  style={{ width: "50", height: "100px" }}
+                  style={{ width: "65px", height: "100px" }}
                 />
                 <Grid item>
-                  <Typography variant="caption" p={1}>
+                  <Typography variant="caption" p={1} component="p">
                     {name.full}
                   </Typography>
                 </Grid>
