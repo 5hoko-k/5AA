@@ -18,7 +18,7 @@ export default function Episodes() {
       <Grid container spacing={2}>
         {episodes.map(({ thumbnail, title, url }) => (
           <Grid item xs={4}>
-            <Card>
+            <Card sx={{ height: "100%" }}>
               <CardActionArea>
                 <CardMedia component="img" image={thumbnail} />
                 <CardContent>
