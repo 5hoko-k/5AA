@@ -7,7 +7,7 @@ export default function Characters() {
   // console.log(characters.edges)
   return (
     <>
-      <Grid container justifyContent="space-evenly">  
+      <Grid container justifyContent="space-between">  
         {characters.edges.map(({ node, voiceActors }) =>
           voiceActors.map(({ image, name }) => (
             <Grid
@@ -16,7 +16,7 @@ export default function Characters() {
               xs={5}
               mb={2}
               justifyContent="space-between"
-              sx={{ borderRadius: "10px", overflow: "hidden", flexGrow: 1, flexBasis: 0 }}
+              sx={{ borderRadius: "10px", overflow: "hidden" }}
             >
               <Grid item container xs={6}>
                 <img
