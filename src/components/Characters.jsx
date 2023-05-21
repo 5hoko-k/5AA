@@ -7,18 +7,25 @@ export default function Characters() {
   // console.log(characters.edges)
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container>  
         {characters.edges.map(({ node, voiceActors }) =>
           voiceActors.map(({ image, name }) => (
-            <Grid item container xs={6} justifyContent="space-between">
-              <Grid item container sx={{ width: "50%" }}>
+            <Grid
+              item
+              container
+              xs={6}
+              justifyContent="space-between"
+              // m={1}
+              sx={{ borderRadius: "10px", overflow: "hidden", backgroundColor: "red" }}
+            >
+              <Grid item container xs={6}>
                 <img
                   src={node.image.medium}
                   alt={node.name.full}
                   style={{ width: "65px", height: "100px" }}
                 />
-                <Grid item> 
-                  <Typography variant="caption" p={1} component="p">
+                <Grid item xs={6}>
+                  <Typography variant="caption" p={1} align="left" component="p">
                     {node.name.full}
                   </Typography>
                 </Grid>
@@ -27,7 +34,7 @@ export default function Characters() {
               <Grid
                 item
                 container
-                sx={{ width: "50%" }}
+                xs={6}
                 direction="row-reverse"
               >
                 <img
@@ -35,8 +42,8 @@ export default function Characters() {
                   alt={name.full}
                   style={{ width: "65px", height: "100px" }}
                 />
-                <Grid item>
-                  <Typography variant="caption" p={1} component="p">
+                <Grid item xs={6}>
+                  <Typography variant="caption" p={1} align="right" component="p">
                     {name.full}
                   </Typography>
                 </Grid>
