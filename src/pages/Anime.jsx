@@ -104,7 +104,7 @@ export default function Anime(props) {
             />
           </Box>
         </Grid>
-        <Grid container mx={10} justifyContent="flex-end">
+        <Grid container mx={7} justifyContent="flex-end">
           <Grid item xs={3}>
             <div style={{ position: "relative" }}>
               <Box
@@ -128,32 +128,37 @@ export default function Anime(props) {
               </Box>
             </div>
           </Grid>
-          <Grid item xs={9} py={3} px={2}>
-            <Typography variant="h5" mb={2}>
-              {isEnglish
-                ? title.english
+          <Grid item container direction="column" xs={6} py={3} px={2}>
+            <Grid item>
+              <Typography variant="h5" mb={2}>
+                {isEnglish
                   ? title.english
-                  : title.romaji
-                : title.romaji}
-            </Typography>
-            <Typography
-              variant="body2"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
+                    ? title.english
+                    : title.romaji
+                  : title.romaji}
+              </Typography>
+              <Typography
+                variant="body2"
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
+            </Grid>
+            <Grid item>
+              <AnimeData.Provider
+                value={{
+                  averageScore: averageScore,
+                  totalEpisodes: totalEpisodes,
+                  genres: genres,
+                  tags: tags,
+                  episodes: episodes,
+                  characters: characters,
+                }}
+              >
+                <AnimeNavBar />
+              </AnimeData.Provider>
+            </Grid>
           </Grid>
-          <Grid item xs={9} py={3} px={2}>
-            <AnimeData.Provider
-              value={{
-                averageScore: averageScore,
-                totalEpisodes: totalEpisodes,
-                genres: genres,
-                tags: tags,
-                episodes: episodes,
-                characters: characters,
-              }}
-            >
-              <AnimeNavBar />
-            </AnimeData.Provider>
+          <Grid item xs={3}>
+            kakashi hatake
           </Grid>
         </Grid>
       </Grid>
