@@ -1,6 +1,10 @@
 import "../styles/Filter.css";
 import { useQuery, gql } from "@apollo/client";
 import { useState } from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const query = gql`
   query {
@@ -36,37 +40,61 @@ const Filter = (props) => {
       {error && <p>Error : {error.message}</p>}
       {data && (
         <form className="filter-form" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="category">Status:</label>
-            <select id="status" name="status" onChange={(e) => setStatus(e.target.value)}>
-              <option value="">All</option>
-              <option value="CURRENT">Watching</option>
-              <option value="COMPLETED">Complete</option>
-              <option value="PLANNING">Planning</option>
-              <option value="DROPPED">Dropped</option>
-              <option value="PAUSED">Paused</option>
-            </select>
-          </div>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel id="status">Status</InputLabel>
+            <Select
+              labelId="status"
+              id="status"
+              value={format}
+              onChange={(e) => setStatus(e.target.value)}
+              label="status"
+            >
+              <MenuItem value="">
+                <em>All</em>
+              </MenuItem>
+              <MenuItem value="CURRENT">Watching</MenuItem>
+              <MenuItem value="COMPLETED">Complete</MenuItem>
+              <MenuItem value="PLANNING">Planning</MenuItem>
+              <MenuItem value="DROPPED">Dropped</MenuItem>
+              <MenuItem value="PAUSED">Paused</MenuItem>
+            </Select>
+          </FormControl>
 
-          <div>
-            <label htmlFor="genre">Genre:</label>
-            <select id="genre" name="genre" onChange={(e) => setGenre(e.target.value)}>
-              <option value="">All</option>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel id="genre">Genre</InputLabel>
+            <Select
+              labelId="genre"
+              id="genre"
+              value={genre}
+              onChange={(e) => setGenre(e.target.value)}
+              label="genre"
+            >
+              <MenuItem value="">
+                <em>All</em>
+              </MenuItem>
               {data.User.statistics.anime.genres.map(({ genre }) => (
-                <option value={genre}>{genre}</option>
+                <MenuItem value={genre}>{genre}</MenuItem>
               ))}
-            </select>
-          </div>
+            </Select>
+          </FormControl>
 
-          <div>
-            <label htmlFor="format">Type:</label>
-            <select id="format" name="format" onChange={(e) => setFormat(e.target.value)}>
-              <option value="">All</option>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel id="type">Type</InputLabel>
+            <Select
+              labelId="type"
+              id="format"
+              value={format}
+              onChange={(e) => setFormat(e.target.value)}
+              label="type"
+            >
+              <MenuItem value="">
+                <em>All</em>
+              </MenuItem>
               {data.User.statistics.anime.formats.map(({ format }) => (
-                <option value={format}>{format}</option>
+                <MenuItem value={format}>{format}</MenuItem>
               ))}
-            </select>
-          </div>
+            </Select>
+          </FormControl>
 
           <div>
             <button type="submit">Filter</button>
