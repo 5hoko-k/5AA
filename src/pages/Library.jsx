@@ -20,6 +20,7 @@ var query = gql`
             coverImage {
               large
             }
+            episodes
           }
           status
           score

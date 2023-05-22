@@ -128,6 +128,7 @@ const DisplayAnime = (props) => {
                     <Typography variant="caption" color="text.secondary">
                       <em>Progess: </em>
                       {progress}/<span>{media.episodes}</span>
+                      {console.log(media.episodes)}
                     </Typography>
                   )}
                 </CardContent>
