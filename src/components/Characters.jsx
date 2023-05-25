@@ -7,7 +7,7 @@ export default function Characters() {
   // console.log(characters.edges)
   return (
     <>
-      <Grid container justifyContent="space-between">  
+      <Grid container justifyContent="space-around">  
         {characters.edges.map(({ node, voiceActors }) =>
           voiceActors.map(({ image, name }) => (
             <Grid
@@ -16,16 +16,16 @@ export default function Characters() {
               xs={5}
               mb={2}
               justifyContent="space-between"
-              sx={{ borderRadius: "10px", overflow: "hidden" }}
+              sx={{ borderRadius: "10px", overflow: "hidden" , minWidth: "150px"}}
             >
               <Grid item container xs={6}>
                 <img
                   src={node.image.medium}
                   alt={node.name.full}
-                  style={{ width: "65px", height: "100px" }}
+                  style={{ width: "50px", height: "76.92px" }}
                 />
                 <Grid item xs={6}>
-                  <Typography variant="caption" p={1} align="left" component="p">
+                  <Typography variant="caption" px={1} align="left" component="p">
                     {node.name.full}
                   </Typography>
                 </Grid>
@@ -40,10 +40,10 @@ export default function Characters() {
                 <img
                   src={image.medium}
                   alt={name.full}
-                  style={{ width: "65px", height: "100px" }}
+                  style={{ width: "50px", height: "76.92px" }}
                 />
                 <Grid item xs={6}>
-                  <Typography variant="caption" p={1} align="right" component="p">
+                  <Typography variant="caption" px={1} align="right" component="p">
                     {name.full}
                   </Typography>
                 </Grid>
