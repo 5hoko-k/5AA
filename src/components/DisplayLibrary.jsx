@@ -17,14 +17,13 @@ function DisplayLibrary(props) {
   if (props.loading) return <p>Loading...</p>;
   if (props.error) return <p>Error : {error.message}</p>;
 
-  const listEntries = props.data.MediaListCollection.lists.map(
-    ({ entries }) => {
-      const sortedEntries = [...entries].sort(
-        (a, b) => b.media.popularity - a.media.popularity
-      );
-      return { entries: sortedEntries };
-    }
+  const mergedListEntries = props.data.MediaListCollection.lists.flatMap((obj) => obj.entries);
+  console.log(mergedListEntries);
+
+  const sortedMergedListEntries = mergedListEntries.sort(
+    (a, b) => b.media.popularity - a.media.popularity
   );
+    console.log(sortedMergedListEntries)
 
   const onFilter = (genre, status, format) => {
     setGenre(genre);
@@ -39,16 +38,15 @@ function DisplayLibrary(props) {
       {props.loading && <p>Loading...</p>}
       {props.error && <p>Error : {error.message}</p>}
       {props.data &&
-        listEntries.map(({ index, entries }) => (
-          <Grid container key={index}>
+          <Grid container>
             <DisplayAnime
-              entries={entries}
+              entries={sortedMergedListEntries}
               genre={genre}
               status={status}
               format={format}
             />
           </Grid>
-        ))}
+        }
     </>
   );
 }
@@ -98,7 +96,7 @@ const DisplayAnime = (props) => {
               sx={{
                 height: "100%",
                 "& .MuiBadge-badge": {
-                  backgroundColor: statusColor(status)
+                  backgroundColor: statusColor(status),
                 },
               }}
             >
