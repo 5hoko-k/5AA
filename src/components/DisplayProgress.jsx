@@ -51,9 +51,6 @@ function DisplayProgress() {
     <Grid
       container
       key={name}
-      // sx={{ backgroundColor: 'red' }}
-      // rowSpacing={1}
-      // columnSpacing={{ xs: 1, sm: 2, md: 3 }}
     >
       <DisplayAnimeProgress entries={entries} />
     </Grid>
@@ -99,84 +96,3 @@ const DisplayAnimeProgress = (props) => {
   ));
 };
 
-{
-  /* <div className="image-container">
-          <img className="" alt="image" src={media.coverImage.large} />
-          {status === "CURRENT" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "blue" }}
-            ></span>
-          )}{" "}
-          {status === "CURRENT" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "blue" }}
-            ></span>
-          )}
-          {status === "COMPLETED" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "#008000" }}
-            ></span>
-          )}
-          {status === "PLANNING" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "pink" }}
-            ></span>
-          )}
-          {status === "DROPPED" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "red" }}
-            ></span>
-          )}
-          {status === "PAUSED" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "orange" }}
-            ></span>
-          )}
-          {status === "COMPLETED" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "#008000" }}
-            ></span>
-          )}
-          {status === "PLANNING" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "pink" }}
-            ></span>
-          )}
-          {status === "DROPPED" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "red" }}
-            ></span>
-          )}
-          {status === "PAUSED" && (
-            <span
-              className="badge top-right"
-              style={{ backgroundColor: "orange" }}
-            ></span>
-          )}
-        </div>
-        <span>
-          <em>ID: </em>
-        </span>
-        <span>{media.id}</span>
-        <span>
-          {isEnglish
-            ? media.title.english
-              ? media.title.english
-              : media.title.romaji
-            : media.title.romaji}
-        </span>
-        <span>
-          <em>Progess: </em>
-          {progress}
-        </span> / 
-        <span>{media.episodes}</span> */
-}

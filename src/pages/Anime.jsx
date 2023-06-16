@@ -80,7 +80,6 @@ export default function Anime(props) {
 
   return (
     <>
-      {" "}
       <Grid container>
         <Grid item xs={12}>
           <Box
@@ -111,7 +110,7 @@ export default function Anime(props) {
                 sx={{
                   position: "absolute",
                   top: -100,
-                  left: 25,
+                  left: 32,
                   width: "230px",
                   height: "327px",
                   objectFit: "cover",
@@ -128,7 +127,7 @@ export default function Anime(props) {
               </Box>
             </div>
           </Grid>
-          <Grid item container direction="column" xs={6} py={3} px={2}>
+          <Grid item container direction="column" xs={6} py={3} px={1}>
             <Grid item>
               <Typography variant="h5" mb={2}>
                 {isEnglish

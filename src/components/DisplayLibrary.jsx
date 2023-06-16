@@ -140,36 +140,3 @@ const DisplayAnime = (props) => {
     </>
   );
 };
-
-{
-  /* {status === "CURRENT" && (
-                <span
-                  className="badge top-right"
-                  style={{ backgroundColor: "blue" }}
-                ></span>
-              )}
-              {status === "COMPLETED" && (
-                <span
-                  className="badge top-right"
-                  style={{ backgroundColor: "#2E8B57" }}
-                ></span>
-              )}
-              {status === "PLANNING" && (
-                <span
-                  className="badge top-right"
-                  style={{ backgroundColor: "pink" }}
-                ></span>
-              )}
-              {status === "DROPPED" && (
-                <span
-                  className="badge top-right"
-                  style={{ backgroundColor: "red" }}
-                ></span>
-              )}
-              {status === "PAUSED" && (
-                <span
-                  className="badge top-right"
-                  style={{ backgroundColor: "orange" }}
-                ></span>
-              )} */
-}
