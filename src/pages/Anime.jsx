@@ -80,7 +80,8 @@ export default function Anime(props) {
 
   return (
     <>
-      <Grid container>
+      <Grid container> {/* Full Conteiner Start*/} 
+        {/* bannar image start*/}
         <Grid item xs={12}>
           <Box
             sx={{
@@ -102,10 +103,12 @@ export default function Anime(props) {
               }}
             />
           </Box>
-        </Grid>
-        <Grid container mx={7} justifyContent="flex-end">
-          <Grid item xs={3}>
-            <div style={{ position: "relative" }}>
+        </Grid> {/* banner image end */}
+
+        <Grid container mx={7} justifyContent="flex-start"> {/* Body Start*/} 
+
+          <Grid item xs={3}> {/* Left start*/}
+            <div style={{ position: "relative" }}> {/* cover image start*/}
               <Box
                 sx={{
                   position: "absolute",
@@ -125,10 +128,11 @@ export default function Anime(props) {
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </Box>
-            </div>
-          </Grid>
-          <Grid item container direction="column" xs={6} py={3} px={1}>
-            <Grid item>
+            </div> {/* cover image end*/} 
+          </Grid> {/* Left end */}
+
+          <Grid item container direction="column" xs={9} py={3} px={1}> {/* Middle start */}
+            <Grid item> {/* title + description start*/}
               <Typography variant="h5" mb={2}>
                 {isEnglish
                   ? title.english
@@ -140,8 +144,8 @@ export default function Anime(props) {
                 variant="body2"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
-            </Grid>
-            <Grid item>
+            </Grid> {/* title + description end*/}
+            <Grid item> {/* anime properties navigation start*/}
               <AnimeData.Provider
                 value={{
                   averageScore: averageScore,
@@ -154,13 +158,11 @@ export default function Anime(props) {
               >
                 <AnimeNavBar />
               </AnimeData.Provider>
-            </Grid>
-          </Grid>
-          <Grid item xs={3}>
-            kakashi hatake
-          </Grid>
-        </Grid>
-      </Grid>
+            </Grid> {/* anime properties navigation end */}
+          </Grid> {/* Middle end */}
+
+        </Grid> {/* Body Start*/} 
+      </Grid> {/* Full Container End*/} 
     </>
   );
 }
