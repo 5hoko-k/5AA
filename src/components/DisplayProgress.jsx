@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
+import { Link } from "react-router-dom";
 
 var query = gql`
   query {
@@ -20,6 +21,7 @@ var query = gql`
         name
         entries {
           id
+          mediaId
           progress
           status
           updatedAt
@@ -62,10 +64,11 @@ export default DisplayProgress;
 const DisplayAnimeProgress = (props) => {
   const isEnglish = useContext(TitleIsEnglish);
 
-  return props.entries.map(({ id, progress, media, status }) => (
+  return props.entries.map(({ id, progress, media, mediaId }) => (
     <>
       <Grid item key={id} xs={6} md={3} lg={2} px={1} py={1}>
         <Card sx={{ maxWidth: 345, height: "100%" }}>
+        <Link to={`/library/${mediaId}`}>
           <CardMedia
             component="img"
             alt={
@@ -77,6 +80,7 @@ const DisplayAnimeProgress = (props) => {
             }
             image={media.coverImage.large}
           />
+          </Link>
           <CardContent>
             <Typography gutterBottom variant="body1" component="div">
               {isEnglish
