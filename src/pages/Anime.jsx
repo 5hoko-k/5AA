@@ -113,9 +113,8 @@ export default function Anime(props) {
                 sx={{
                   position: "absolute",
                   top: -100,
-                  left: 32,
-                  width: "230px",
-                  height: "327px",
+                  width: "100%",
+                  height: "auto",
                   objectFit: "cover",
                   overflow: "hidden",
                   zIndex: 1,
