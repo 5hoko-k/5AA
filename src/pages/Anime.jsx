@@ -107,7 +107,7 @@ function Anime(props) {
         </Grid>
         {/* banner image end */}
         {/* Body Start*/}
-        <Grid container px={1} justifyContent="flex-start">
+        <Grid container px={{ xs: 2, sm: 5, md: 7}} justifyContent="flex-start">
           {/* Left start*/}
           <Grid
             item
@@ -149,7 +149,7 @@ function Anime(props) {
           </Grid>
           {/* Left end */}
           {/* Middle start */}
-          <Grid item container direction="column" xs={12} md={9} py={3} px={1} mt={5} wrap="nowrap">
+          <Grid item container direction="column" xs={12} md={9} py={3} px={2} mt={5} wrap="nowrap">
             {/* title + description start*/}
             <Grid item>
               <Typography variant="h5" mb={2}>
