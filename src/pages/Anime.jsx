@@ -1,6 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { TitleIsEnglish } from "../App";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Grid, Typography } from "@mui/material";
 import AnimeNavBar from "../components/AnimeNavBar";
@@ -57,7 +57,7 @@ const query = gql`
   }
 `;
 
-export default function Anime(props) {
+function Anime(props) {
   const isEnglish = useContext(TitleIsEnglish);
   const { animeId } = useParams();
   const variables = { id: animeId };
@@ -107,7 +107,7 @@ export default function Anime(props) {
 
         <Grid container mx={7} justifyContent="flex-start"> {/* Body Start*/} 
 
-          <Grid item xs={3}> {/* Left start*/}
+          <Grid item xs={3} px={3}> {/* Left start*/}
             <div style={{ position: "relative" }}> {/* cover image start*/}
               <Box
                 sx={{
@@ -119,6 +119,10 @@ export default function Anime(props) {
                   overflow: "hidden",
                   zIndex: 1,
                   borderRadius: "5px",
+                  maxWidth: "200px", // Maximum width for the cover image
+                  maxHeight: "300px", // Maximum height for the cover image
+                  minWidth: "150px", // Minimum width for the cover image
+                  minHeight: "225px", // Minimum height for the cover image
                 }}
               >
                 <img
@@ -165,3 +169,5 @@ export default function Anime(props) {
     </>
   );
 }
+
+export default Anime;
