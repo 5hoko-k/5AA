@@ -109,44 +109,46 @@ function Anime(props) {
         {/* Body Start*/}
         <Grid container mx={7} justifyContent="flex-start">
           {/* Left start*/}
-          <Grid item xs={3} px={3}>
+          <Grid
+            item
+            xs={12}
+            md={3}
+            px={3}
+            style={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             {/* cover image start*/}
-            <div
-              style={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+            <Box
+              sx={{
+                position: "absolute",
+                top: -100,
+                width: "100%",
+                height: "auto",
+                objectFit: "cover",
+                overflow: "hidden",
+                zIndex: 1,
+                borderRadius: "5px",
+                maxWidth: "200px", // Maximum width for the cover image
+                maxHeight: "300px", // Maximum height for the cover image
+                minWidth: "150px", // Minimum width for the cover image
+                minHeight: "225px", // Minimum height for the cover image
               }}
             >
-              <Box
-                sx={{
-                  position: "absolute",
-                  top: -100,
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                  overflow: "hidden",
-                  zIndex: 1,
-                  borderRadius: "5px",
-                  maxWidth: "200px", // Maximum width for the cover image
-                  maxHeight: "300px", // Maximum height for the cover image
-                  minWidth: "150px", // Minimum width for the cover image
-                  minHeight: "225px", // Minimum height for the cover image
-                }}
-              >
-                <img
-                  src={coverImage.extraLarge}
-                  alt="somn"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </Box>
-            </div>
+              <img
+                src={coverImage.extraLarge}
+                alt="somn"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </Box>
             {/* cover image end*/}
           </Grid>
           {/* Left end */}
           {/* Middle start */}
-          <Grid item container direction="column" xs={9} py={3} px={1}>
+          <Grid item container direction="column" xs={12} md={9} py={3} px={1}>
             {/* title + description start*/}
             <Grid item>
               <Typography variant="h5" mb={2}>
