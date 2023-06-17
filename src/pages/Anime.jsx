@@ -82,7 +82,7 @@ function Anime(props) {
     <>
       {/* Full Conteiner Start*/}
       <Grid container>
-        {/* bannar image start*/}
+        {/* banner image start*/}
         <Grid item xs={12}>
           <Box
             sx={{
@@ -107,7 +107,7 @@ function Anime(props) {
         </Grid>
         {/* banner image end */}
         {/* Body Start*/}
-        <Grid container mx={7} justifyContent="flex-start">
+        <Grid container px={1} justifyContent="flex-start">
           {/* Left start*/}
           <Grid
             item
@@ -149,7 +149,7 @@ function Anime(props) {
           </Grid>
           {/* Left end */}
           {/* Middle start */}
-          <Grid item container direction="column" xs={12} md={9} py={3} px={1} mt={5}>
+          <Grid item container direction="column" xs={12} md={9} py={3} px={1} mt={5} wrap="nowrap">
             {/* title + description start*/}
             <Grid item>
               <Typography variant="h5" mb={2}>
@@ -167,7 +167,7 @@ function Anime(props) {
             {/* title + description end*/}
 
             {/* anime properties navigation start*/}
-            <Grid item>
+            <Grid item >
               <AnimeData.Provider
                 value={{
                   averageScore: averageScore,
