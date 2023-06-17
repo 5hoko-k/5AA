@@ -80,7 +80,8 @@ function Anime(props) {
 
   return (
     <>
-      <Grid container> {/* Full Conteiner Start*/} 
+      {/* Full Conteiner Start*/}
+      <Grid container>
         {/* bannar image start*/}
         <Grid item xs={12}>
           <Box
@@ -103,12 +104,21 @@ function Anime(props) {
               }}
             />
           </Box>
-        </Grid> {/* banner image end */}
-
-        <Grid container mx={7} justifyContent="flex-start"> {/* Body Start*/} 
-
-          <Grid item xs={3} px={3}> {/* Left start*/}
-            <div style={{ position: "relative" }}> {/* cover image start*/}
+        </Grid>
+        {/* banner image end */}
+        {/* Body Start*/}
+        <Grid container mx={7} justifyContent="flex-start">
+          {/* Left start*/}
+          <Grid item xs={3} px={3}>
+            {/* cover image start*/}
+            <div
+              style={{
+                position: "relative",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Box
                 sx={{
                   position: "absolute",
@@ -131,11 +141,14 @@ function Anime(props) {
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </Box>
-            </div> {/* cover image end*/} 
-          </Grid> {/* Left end */}
-
-          <Grid item container direction="column" xs={9} py={3} px={1}> {/* Middle start */}
-            <Grid item> {/* title + description start*/}
+            </div>
+            {/* cover image end*/}
+          </Grid>
+          {/* Left end */}
+          {/* Middle start */}
+          <Grid item container direction="column" xs={9} py={3} px={1}>
+            {/* title + description start*/}
+            <Grid item>
               <Typography variant="h5" mb={2}>
                 {isEnglish
                   ? title.english
@@ -147,8 +160,11 @@ function Anime(props) {
                 variant="body2"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
-            </Grid> {/* title + description end*/}
-            <Grid item> {/* anime properties navigation start*/}
+            </Grid>
+            {/* title + description end*/}
+
+            {/* anime properties navigation start*/}
+            <Grid item>
               <AnimeData.Provider
                 value={{
                   averageScore: averageScore,
@@ -161,11 +177,14 @@ function Anime(props) {
               >
                 <AnimeNavBar />
               </AnimeData.Provider>
-            </Grid> {/* anime properties navigation end */}
-          </Grid> {/* Middle end */}
-
-        </Grid> {/* Body Start*/} 
-      </Grid> {/* Full Container End*/} 
+            </Grid>
+            {/* anime properties navigation end */}
+          </Grid>
+          {/* Middle end */}
+        </Grid>
+        {/* Body End*/}
+      </Grid>
+      {/* Full Container End*/}
     </>
   );
 }
