@@ -7,7 +7,7 @@ export default function Characters() {
   // console.log(characters.edges)
   return (
     <>
-      <Grid container justifyContent="space-around" columnSpacing={{ xs: 1, sm: 3}}>  
+      <Grid container justifyContent="space-around">  
         {characters.edges.map(({ node, voiceActors }) =>
           voiceActors.map(({ image, name }) => (
             <Grid
@@ -15,6 +15,7 @@ export default function Characters() {
               container
               xs={5}
               mb={2}
+              ml={{ xs: 1, sm: 3}}
               justifyContent="space-between"
               sx={{ borderRadius: "10px", overflow: "hidden" , minWidth: "300px"}}
             >
