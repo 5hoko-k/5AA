@@ -21,6 +21,8 @@ const query = gql`
       }
       description(asHtml: false)
       averageScore
+      seasonYear
+      season
       episodes
       streamingEpisodes {
         title
@@ -71,12 +73,17 @@ function Anime(props) {
   const bannerImage = data.Media.bannerImage;
   const coverImage = data.Media.coverImage;
   const description = data.Media.description;
-  const averageScore = data.Media.averageScore;
-  const totalEpisodes = data.Media.episodes;
   const episodes = data.Media.streamingEpisodes;
-  const genres = data.Media.genres;
-  const tags = data.Media.tags;
   const characters = data.Media.characters;
+
+  const stats = {
+    averageScore: data.Media.averageScore,
+    totalEpisodes: data.Media.episodes,
+    genres: data.Media.genres,
+    tags: data.Media.tags,
+    seasonYear: data.Media.seasonYear,
+    season: data.Media.season,
+  }
 
   return (
     <>
@@ -170,10 +177,7 @@ function Anime(props) {
             <Grid item >
               <AnimeData.Provider
                 value={{
-                  averageScore: averageScore,
-                  totalEpisodes: totalEpisodes,
-                  genres: genres,
-                  tags: tags,
+                  stats: stats,
                   episodes: episodes,
                   characters: characters,
                 }}
