@@ -24,6 +24,12 @@ const query = gql`
       seasonYear
       season
       episodes
+      status
+      nextAiringEpisode {
+			  airingAt
+        timeUntilAiring
+        episode
+			}
       streamingEpisodes {
         title
         thumbnail
@@ -83,6 +89,8 @@ function Anime(props) {
     tags: data.Media.tags,
     seasonYear: data.Media.seasonYear,
     season: data.Media.season,
+    status: data.Media.status,
+    nextAiringEpisode: data.Media.nextAiringEpisode
   }
 
   return (
@@ -126,7 +134,7 @@ function Anime(props) {
               position: "relative",
               display: "flex",
               justifyContent: "center",
-              alignItems: "center",
+              alignItems: "flex-start",
             }}
           >
             {/* cover image start*/}
@@ -153,6 +161,27 @@ function Anime(props) {
               />
             </Box>
             {/* cover image end*/}
+            {/* anime info start */}
+            <Grid item container direction='column' justifyContent='flex-end' mt={17} alignItems='flex-start'>
+              <Typography variant="subtitle1" >
+                Anime Status: 
+                <Typography variant="caption" paragraph>{stats.status}</Typography>
+              </Typography>
+              <Typography variant="subtitle1" >
+                Released: 
+                <Typography variant="caption" paragraph>{stats.season} {stats.seasonYear}</Typography>
+              </Typography>
+              <Typography variant="subtitle1" >
+                Total Episodes: 
+                <Typography variant="caption" paragraph>{stats.totalEpisodes}</Typography>
+              </Typography>
+              <Typography variant="subtitle1" >
+                Average Score: 
+                <Typography variant="caption" paragraph>{stats.averageScore}%</Typography>
+              </Typography>
+              
+            </Grid>
+            {/* anime info end */}
           </Grid>
           {/* Left end */}
           {/* Middle start */}
