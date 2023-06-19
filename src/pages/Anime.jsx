@@ -81,6 +81,22 @@ function Anime(props) {
   const description = data.Media.description;
   const episodes = data.Media.streamingEpisodes;
   const characters = data.Media.characters;
+  var timeStats = null;
+
+  if(data.Media.nextAiringEpisode){
+  const airingTime = new Date(data.Media.nextAiringEpisode.airingAt * 1000);
+  const aDate = airingTime.toLocaleDateString();
+  const aTime = airingTime.toLocaleTimeString();
+
+  const timeUntilNextairingTime = data.Media.nextAiringEpisode.timeUntilAiring * 1000;
+  const days = Math.floor(timeUntilNextairingTime / (24 * 60 * 60 * 1000));
+  const hours = Math.floor(timeUntilNextairingTime / (60 * 60 * 1000));
+  const minutes = Math.floor((timeUntilNextairingTime% (60 * 60 * 1000)) / (60 * 1000));
+  const seconds = Math.floor((timeUntilNextairingTime % (60 * 1000)) / 1000);
+
+  timeStats = {    airingAt: {date: aDate, time:aTime},
+  timeUntilAiring: { days: days, hours: hours, minutes: minutes, seconds: seconds}}
+  }
 
   const stats = {
     averageScore: data.Media.averageScore,
@@ -89,8 +105,7 @@ function Anime(props) {
     tags: data.Media.tags,
     seasonYear: data.Media.seasonYear,
     season: data.Media.season,
-    status: data.Media.status,
-    nextAiringEpisode: data.Media.nextAiringEpisode
+    status: data.Media.status
   }
 
   return (
@@ -179,6 +194,15 @@ function Anime(props) {
                 Average Score: 
                 <Typography variant="caption" paragraph>{stats.averageScore}%</Typography>
               </Typography>
+              {timeStats && <>
+              <Typography variant="subtitle1" >
+                Next Episode Airing: 
+                <Typography variant="caption" paragraph>{timeStats.airingAt.date} {timeStats.airingAt.time}</Typography>
+              </Typography>
+              <Typography variant="subtitle1" >
+                Time until Airing: 
+                <Typography variant="caption" paragraph>{timeStats.timeUntilAiring.days}days / {timeStats.timeUntilAiring.hours}hours / {timeStats.timeUntilAiring.minutes}minutes / {timeStats.timeUntilAiring.seconds}seconds </Typography> 
+              </Typography></> }
               
             </Grid>
             {/* anime info end */}
