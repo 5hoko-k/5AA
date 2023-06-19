@@ -20,9 +20,9 @@ export default function AnimeNavBar() {
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example" variant="fullWidth">
+            <Tab label="Stats" value="stats" />
             <Tab label="Characters" value="characters" />
             <Tab label="Episodes" value="episodes" />
-            <Tab label="Stats" value="stats" />
             <Tab label="Related" value="related" />
           </TabList>
         </Box>
