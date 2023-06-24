@@ -105,7 +105,8 @@ function Anime(props) {
     tags: data.Media.tags,
     seasonYear: data.Media.seasonYear,
     season: data.Media.season,
-    status: data.Media.status
+    status: data.Media.status,
+    timeStats: timeStats
   }
 
   return (
@@ -176,36 +177,6 @@ function Anime(props) {
               />
             </Box>
             {/* cover image end*/}
-            {/* anime info start */}
-            <Grid item container direction='column' justifyContent='flex-end' mt={17} alignItems='flex-start'>
-              <Typography variant="subtitle1" >
-                Anime Status: 
-                <Typography variant="caption" paragraph>{stats.status}</Typography>
-              </Typography>
-              <Typography variant="subtitle1" >
-                Released: 
-                <Typography variant="caption" paragraph>{stats.season} {stats.seasonYear}</Typography>
-              </Typography>
-              <Typography variant="subtitle1" >
-                Total Episodes: 
-                <Typography variant="caption" paragraph>{stats.totalEpisodes}</Typography>
-              </Typography>
-              <Typography variant="subtitle1" >
-                Average Score: 
-                <Typography variant="caption" paragraph>{stats.averageScore}%</Typography>
-              </Typography>
-              {timeStats && <>
-              <Typography variant="subtitle1" >
-                Next Episode Airing: 
-                <Typography variant="caption" paragraph>{timeStats.airingAt.date} {timeStats.airingAt.time}</Typography>
-              </Typography>
-              <Typography variant="subtitle1" >
-                Time until Airing: 
-                <Typography variant="caption" paragraph>{timeStats.timeUntilAiring.days}days / {timeStats.timeUntilAiring.hours}hours / {timeStats.timeUntilAiring.minutes}minutes / {timeStats.timeUntilAiring.seconds}seconds </Typography> 
-              </Typography></> }
-              
-            </Grid>
-            {/* anime info end */}
           </Grid>
           {/* Left end */}
           {/* Middle start */}
