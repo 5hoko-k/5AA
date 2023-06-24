@@ -9,7 +9,7 @@ import Stats from "./Stats";
 import Related from "./Related";
 
 export default function AnimeNavBar() {
-  const [value, setValue] = useState("characters");
+  const [value, setValue] = useState("stats");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -26,9 +26,9 @@ export default function AnimeNavBar() {
             <Tab label="Related" value="related" />
           </TabList>
         </Box>
+        <TabPanel value="stats"><Stats /></TabPanel>
         <TabPanel value="characters"><Characters /></TabPanel>
         <TabPanel value="episodes"><Episodes /></TabPanel>
-        <TabPanel value="stats"><Stats /></TabPanel>
         <TabPanel value="related"><Related /></TabPanel>
       </TabContext>
     </Box>
