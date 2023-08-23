@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import "../styles/StatsStyles.css";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { Box } from "@mui/material";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 const query = gql`
@@ -47,7 +48,7 @@ function DisplayStats() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  
+
   const name = data.User.name;
   const count = data.User.statistics.anime.count;
   const minutes = data.User.statistics.anime.minutesWatched;
@@ -103,15 +104,18 @@ function DisplayStats() {
     ],
   };
 
-  const options = {};
+  const options = { responsive: true, maintainAspectRatio: false };
 
   // console.log(name)
   // console.log(stats)
   return (
     <>
-      <div>
-        <Doughnut data={statusChart} options={options} />
-      </div>
+      <Box>
+        <Doughnut
+          data={statusChart}
+          options={options}
+        />
+      </Box>
       <TimeCount
         episodeCount={episodes}
         minutesCount={minutes}
