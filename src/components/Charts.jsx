@@ -1,6 +1,7 @@
 import React, { useState, PureComponent } from "react";
 import { PieChart, Pie, Cell, Sector, ResponsiveContainer } from "recharts";
 import { useQuery, gql } from "@apollo/client";
+import { Box } from "@mui/material";
 
 const query = gql`
   query {
@@ -130,30 +131,32 @@ const Example = () => {
   console.log(status);
 
   return (
-      <ResponsiveContainer width="100%" height={400} debounce={10}>
-        <PieChart>
-          <Pie
-            activeIndex={activeIndex}
-            activeShape={renderActiveShape}
-            onMouseEnter={onPieEnter}
-            data={status}
-            cx={120}
-            cy={200}
-            innerRadius={100}
-            outerRadius={120}
-            fill="#8884d8"
-            paddingAngle={5}
-            dataKey="count"
-          >
-            {status.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
+
+        <ResponsiveContainer width="100%" height={400} debounce={10}>
+          <PieChart>
+            <Pie
+              activeIndex={activeIndex}
+              activeShape={renderActiveShape}
+              onMouseEnter={onPieEnter}
+              data={status}
+              cx="50%"
+              cy="50%"
+              innerRadius={100}
+              outerRadius={120}
+              fill="#8884d8"
+              paddingAngle={5}
+              dataKey="count"
+            >
+              {status.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+
   );
 };
 
