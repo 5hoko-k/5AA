@@ -41,7 +41,26 @@ export default function Stats() {
             </Typography>
           </Typography>
         </Grid>
-
+        <Grid item>
+          <Typography variant="subtitle1">
+            Genres:
+            {stats.genres.map((genre) => (
+              <Typography variant="caption" sx={{ display: 'flex', flexDirection: 'column' }}>
+                {genre} {console.log(genre)}
+              </Typography>
+            ))}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="subtitle1">
+            Tags:
+            {stats.tags.map((tag) => (
+              <Typography variant="caption" sx={{ display: 'flex', flexDirection: 'column' }}>
+                {tag.name} {console.log(tag)}
+              </Typography>
+            ))}
+          </Typography>
+        </Grid>
         {stats.timeStats && (
           <Grid item container justifyContent="space-evenly">
             <Typography variant="subtitle1">
