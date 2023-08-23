@@ -145,7 +145,7 @@ const Example = () => {
             paddingAngle={5}
             dataKey="count"
           >
-            {dataX.map((entry, index) => (
+            {status.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}
