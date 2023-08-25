@@ -1,7 +1,8 @@
 import React, { useState, PureComponent } from "react";
 import { PieChart, Pie, Cell, Sector, ResponsiveContainer } from "recharts";
 import { useQuery, gql } from "@apollo/client";
-import { Box } from "@mui/material";
+import TheRadar from "../components/RadarChart";
+import TheRadialBar from "../components/RadialBarChart";
 
 const query = gql`
   query {
@@ -127,36 +128,40 @@ const Example = () => {
   if (error) return <p>Error : {error.message}</p>;
 
   const status = data.User.statistics.anime.statuses;
+  const genres = data.User.statistics.anime.genres;
 
   console.log(status);
 
   return (
+    <>
+      <ResponsiveContainer width="100%" height={400} debounce={10}>
+        <PieChart>
+          <Pie
+            activeIndex={activeIndex}
+            activeShape={renderActiveShape}
+            onMouseEnter={onPieEnter}
+            data={status}
+            cx="50%"
+            cy="50%"
+            innerRadius={100}
+            outerRadius={120}
+            fill="#8884d8"
+            paddingAngle={5}
+            dataKey="count"
+          >
+            {status.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
 
-        <ResponsiveContainer width="100%" height={400} debounce={10}>
-          <PieChart>
-            <Pie
-              activeIndex={activeIndex}
-              activeShape={renderActiveShape}
-              onMouseEnter={onPieEnter}
-              data={status}
-              cx="50%"
-              cy="50%"
-              innerRadius={100}
-              outerRadius={120}
-              fill="#8884d8"
-              paddingAngle={5}
-              dataKey="count"
-            >
-              {status.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
-
+      {/* <TheRadar data={status}/> */}
+      <TheRadialBar data={genres}/>
+    </>
   );
 };
 
