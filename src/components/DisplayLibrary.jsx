@@ -73,15 +73,15 @@ const DisplayAnime = (props) => {
 
   const statusColor = (status) => {
     if (status === "CURRENT") {
-      return "blue";
+      return "#118AB2";
     } else if (status === "COMPLETED") {
-      return "#2E8B57";
+      return "#06D6A0";
     } else if (status === "PLANNING") {
-      return "pink";
+      return "#073B4C";
     } else if (status === "DROPPED") {
-      return "red";
+      return "#c1121f";
     } else if (status === "PAUSED") {
-      return "orange";
+      return "#FFD166";
     }
   };
 
