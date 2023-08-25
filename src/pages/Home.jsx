@@ -1,4 +1,3 @@
-import PieChartExample from "../components/Charts";
 import Example from "../components/Charts";
 import DisplayProgress from "../components/DisplayProgress";
 import DisplayStats from "../components/DisplayStats";
