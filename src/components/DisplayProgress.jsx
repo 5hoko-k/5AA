@@ -1,5 +1,4 @@
 import { useQuery, gql } from "@apollo/client";
-// import "../styles/ListStyles.css";
 import { TitleIsEnglish } from "../App";
 import { useContext } from "react";
 import Typography from "@mui/material/Typography";
@@ -34,7 +33,7 @@ var query = gql`
             episodes
             coverImage {
               medium
-              large
+              extraLarge
             }
           }
         }
@@ -66,7 +65,7 @@ const DisplayAnimeProgress = (props) => {
 
   return props.entries.map(({ id, progress, media, mediaId }) => (
     <>
-      <Grid item key={id} xs={6} md={3} lg={2} px={1} py={1}>
+      <Grid item key={id} xs={4} md={3} lg={2} px={1} py={1}>
         <Card sx={{ maxWidth: 345, height: "100%" }}>
         <Link to={`/library/${mediaId}`}>
           <CardMedia
@@ -78,7 +77,7 @@ const DisplayAnimeProgress = (props) => {
                   : media.title.romaji
                 : media.title.romaji
             }
-            image={media.coverImage.large}
+            image={media.coverImage.extraLarge}
           />
           </Link>
           <CardContent>
