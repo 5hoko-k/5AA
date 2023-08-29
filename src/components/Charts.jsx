@@ -129,6 +129,7 @@ const Example = () => {
 
   const status = data.User.statistics.anime.statuses;
   const genres = data.User.statistics.anime.genres;
+  const totalAnime = data.User.statistics.anime.count;
 
   console.log(status);
 
@@ -160,7 +161,7 @@ const Example = () => {
       </ResponsiveContainer>
 
       {/* <TheRadar data={status}/> */}
-      <TheRadialBar data={genres}/>
+      <TheRadialBar data={genres} total={totalAnime}/>
     </>
   );
 };
