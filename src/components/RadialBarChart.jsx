@@ -52,7 +52,7 @@ const data = [
 ];
 
 const style = {
-  top: "50%",
+  top: "5%",
   right: 0,
   transform: "translate(0, -50%)",
   lineHeight: "24px",
@@ -101,8 +101,8 @@ const TheRadialBar = (props) => {
           dataKey="count"
         />
         <Legend
-          iconSize={10}
-          layout="vertical"
+          iconSize={15}
+          layout="horizontal"
           verticalAlign="middle"
           wrapperStyle={style}
         />
