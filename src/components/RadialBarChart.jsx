@@ -79,9 +79,17 @@ const TheRadialBar = (props) => {
   const transformedData = props.data.map((item) => ({
     name: item.genre, // Changing 'genre' to 'name'
     count: item.count,
-    pv: total, // Same 'pv' value for all objects
+    pv: item.count, // Same 'pv' value for all objects
     fill: colorMap[item.genre], // Assigning color based on genre
   }));
+  console.log(transformedData)
+  const totalAnimeObj = {
+    name: 'total',
+    count: props.total,
+    pv: props.total, // Same 'pv' value for all objects
+    fill: 'black'
+  }
+  transformedData.unshift(totalAnimeObj)
 
   return (
     <ResponsiveContainer width="100%" height={500}>
