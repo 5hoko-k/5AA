@@ -86,10 +86,10 @@ const DisplayAnime = (props) => {
   };
 
   return (
-    <>
+    <Grid container mx={{ sm: 5, lg: 10 }}>
       {filteredEntries.map(({ mediaId, media, progress, status }) => (
         <>
-          <Grid item key={mediaId} xs={6} md={3} lg={2} px={1} py={1}>
+          <Grid item key={mediaId} xs={6} sm={4} md={3} lg={2} px={1} py={1}>
             <Badge
               color="primary"
               badgeContent=""
@@ -111,7 +111,7 @@ const DisplayAnime = (props) => {
                           : media.title.romaji
                         : media.title.romaji
                     }
-                    image={media.coverImage.large}
+                    image={media.coverImage.extraLarge}
                   />
                 </Link>
                 <CardContent>
@@ -135,6 +135,6 @@ const DisplayAnime = (props) => {
           </Grid>
         </>
       ))}
-    </>
+    </Grid>
   );
 };

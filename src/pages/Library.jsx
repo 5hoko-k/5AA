@@ -19,6 +19,7 @@ var query = gql`
             }
             coverImage {
               large
+              extraLarge
             }
             episodes
           }

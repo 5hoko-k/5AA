@@ -64,7 +64,7 @@ const DisplayAnimeProgress = (props) => {
   const isEnglish = useContext(TitleIsEnglish);
 
   return (
-    <Grid container mx={{ sm: 5, lg: 10}}>
+    <Grid container mx={{ sm: 5, lg: 10 }}>
       {
         props.entries.map(({ id, progress, media, mediaId }) => (
           <>
