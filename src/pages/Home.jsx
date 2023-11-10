@@ -1,12 +1,12 @@
-import Example from "../components/Charts";
-import DisplayProgress from "../components/DisplayProgress";
+import TheCharts from "../components/Home Components/Charts";
+import DisplayProgress from "../components/Home Components/DisplayProgress";
 import DisplayStats from "../components/DisplayStats";
 
 function Home() {
   return (
     <>
       {/* <DisplayStats /> */}
-      <Example />
+      <TheCharts />
       <DisplayProgress />
     </>
   );

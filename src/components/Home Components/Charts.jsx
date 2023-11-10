@@ -1,8 +1,8 @@
 import React, { useState, PureComponent } from "react";
 import { PieChart, Pie, Cell, Sector, ResponsiveContainer } from "recharts";
 import { useQuery, gql } from "@apollo/client";
-import TheRadar from "../components/RadarChart";
-import TheRadialBar from "../components/RadialBarChart";
+import TheRadar from "../RadarChart";
+import TheRadialBar from "../RadialBarChart";
 
 const query = gql`
   query {
@@ -115,7 +115,7 @@ const renderActiveShape = (props) => {
   );
 };
 
-const Example = () => {
+const TheCharts = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const onPieEnter = (_, index) => {
@@ -166,4 +166,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default TheCharts;
