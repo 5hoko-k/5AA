@@ -17,6 +17,7 @@ const query = gql`
           }
           genres(sort: COUNT_DESC) {
             genre
+            mediaIds
           }
         }
       }
@@ -71,7 +72,7 @@ const Filter = (props) => {
               >
                 <MenuItem value=""><em>All</em></MenuItem>
                 {data.User.statistics.anime.genres.map(({ genre }) => (
-                  <MenuItem value={genre}>{genre}</MenuItem>
+                  <MenuItem key={genre} value={genre}>{genre}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -87,7 +88,7 @@ const Filter = (props) => {
               >
                 <MenuItem value=""><em>All</em></MenuItem>
                 {data.User.statistics.anime.formats.map(({ format }) => (
-                  <MenuItem value={format}>{format}</MenuItem>
+                  <MenuItem key={format} value={format}>{format}</MenuItem>
                 ))}
               </Select>
             </FormControl>
