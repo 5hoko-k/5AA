@@ -14,7 +14,6 @@ const DisplayAnimeProgress = (props) => {
     <Grid container mx={{ sm: 5, lg: 10 }}>
       {
         props.entries.map(({ id, progress, media, mediaId }) => (
-          <>
             <Grid item key={id} xs={6} sm={4} md={3} lg={2} px={1} py={1}>
               <Card sx={{ maxWidth: 345, height: "100%" }}>
               <Link to={`/library/${mediaId}`}>
@@ -45,7 +44,6 @@ const DisplayAnimeProgress = (props) => {
                 </CardContent>
               </Card>
             </Grid>
-          </>
         ))
       }
     </Grid>
