@@ -1,4 +1,4 @@
-import { TitleIsEnglish } from "../App";
+import { TitleIsEnglish } from '../../App'
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Filter from "../components/Filter";
+import Filter from "./Filter";
 import Grid from "@mui/material/Grid";
 import DisplayAnime from "./DisplayAnime";
 
@@ -32,7 +32,7 @@ function DisplayLibrary(props) {
 
   return (
     <>
-      <Filter onFilter={onFilter} />
+      <Filter  onFilter={onFilter} />
 
       {props.data &&
           <Grid container>

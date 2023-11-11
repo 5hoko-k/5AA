@@ -1,4 +1,4 @@
-import DisplayLibrary from "../components/DisplayLibrary";
+import DisplayLibrary from "../components/Library Components/DisplayLibrary";
 import { useQuery, gql } from "@apollo/client";
 
 var query = gql`

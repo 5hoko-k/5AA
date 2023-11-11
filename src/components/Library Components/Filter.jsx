@@ -1,4 +1,4 @@
-import "../styles/Filter.css";
+import "../../styles/Filter.css";
 import { useQuery, gql } from "@apollo/client";
 import { useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
