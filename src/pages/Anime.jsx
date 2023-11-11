@@ -3,7 +3,7 @@ import { TitleIsEnglish } from "../App";
 import React, { createContext, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Grid, Typography } from "@mui/material";
-import AnimeNavBar from "../components/AnimeNavBar";
+import AnimeNavBar from "../components/Anime Components/AnimeNavBar";
 
 export const AnimeData = createContext({});
 

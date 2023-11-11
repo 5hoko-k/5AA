@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AnimeData } from "../pages/Anime";
+import { AnimeData } from "../../pages/Anime";
 import { Box, Grid, Typography } from "@mui/material";
 
 export default function Characters() {
