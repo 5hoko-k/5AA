@@ -1,3 +1,12 @@
+import { useContext } from "react";
+import { TitleIsEnglish } from "../../App";
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Card from "@mui/material/Card";
+import { Link } from "react-router-dom";
+import Grid from "@mui/material/Grid";
+
 const DisplayAnimeProgress = (props) => {
   const isEnglish = useContext(TitleIsEnglish);
 

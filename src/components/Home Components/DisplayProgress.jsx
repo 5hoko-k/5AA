@@ -1,12 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
-import { TitleIsEnglish } from "../../App";
-import { useContext } from "react";
-import Typography from "@mui/material/Typography";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import { Link } from "react-router-dom";
+import DisplayAnimeProgress from "./DisplayAnimeProgress";
 
 var query = gql`
   query {
@@ -53,7 +47,7 @@ function DisplayProgress() {
       container
       key={name}
     >
-      <DisplayAnimeProgress entries={entries} />
+      <DisplayAnimeProgress entries={ entries } />
     </Grid>
   ));
 }
