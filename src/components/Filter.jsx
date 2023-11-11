@@ -51,9 +51,7 @@ const Filter = (props) => {
                 onChange={(e) => setStatus(e.target.value)}
                 label="status"
               >
-                <MenuItem value="">
-                  <em>All</em>
-                </MenuItem>
+                <MenuItem value=""><em>All</em></MenuItem>
                 <MenuItem value="CURRENT">Watching</MenuItem>
                 <MenuItem value="COMPLETED">Complete</MenuItem>
                 <MenuItem value="PLANNING">Planning</MenuItem>
@@ -71,9 +69,7 @@ const Filter = (props) => {
                 onChange={(e) => setGenre(e.target.value)}
                 label="genre"
               >
-                <MenuItem value="">
-                  <em>All</em>
-                </MenuItem>
+                <MenuItem value=""><em>All</em></MenuItem>
                 {data.User.statistics.anime.genres.map(({ genre }) => (
                   <MenuItem value={genre}>{genre}</MenuItem>
                 ))}
@@ -89,9 +85,7 @@ const Filter = (props) => {
                 onChange={(e) => setFormat(e.target.value)}
                 label="type"
               >
-                <MenuItem value="">
-                  <em>All</em>
-                </MenuItem>
+                <MenuItem value=""><em>All</em></MenuItem>
                 {data.User.statistics.anime.formats.map(({ format }) => (
                   <MenuItem value={format}>{format}</MenuItem>
                 ))}
