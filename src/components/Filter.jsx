@@ -27,9 +27,9 @@ const query = gql`
 
 const Filter = (props) => {
   const { loading, error, data } = useQuery(query);
-  const [genre, setGenre] = useState();
-  const [format, setFormat] = useState();
-  const [status, setStatus] = useState();
+  const [genre, setGenre] = useState('All');
+  const [format, setFormat] = useState('All');
+  const [status, setStatus] = useState('All');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,11 +48,11 @@ const Filter = (props) => {
               <Select
                 labelId="status"
                 id="status"
-                value={format}
+                value={status}
                 onChange={(e) => setStatus(e.target.value)}
                 label="status"
               >
-                <MenuItem value=""><em>All</em></MenuItem>
+                <MenuItem key='All' value='All'><em>All</em></MenuItem>
                 <MenuItem value="CURRENT">Watching</MenuItem>
                 <MenuItem value="COMPLETED">Complete</MenuItem>
                 <MenuItem value="PLANNING">Planning</MenuItem>
@@ -70,7 +70,7 @@ const Filter = (props) => {
                 onChange={(e) => setGenre(e.target.value)}
                 label="genre"
               >
-                <MenuItem value=""><em>All</em></MenuItem>
+                <MenuItem key='All' value='All'><em>All</em></MenuItem>
                 {data.User.statistics.anime.genres.map(({ genre }) => (
                   <MenuItem key={genre} value={genre}>{genre}</MenuItem>
                 ))}
@@ -86,7 +86,7 @@ const Filter = (props) => {
                 onChange={(e) => setFormat(e.target.value)}
                 label="type"
               >
-                <MenuItem value=""><em>All</em></MenuItem>
+                <MenuItem key='All' value='All'><em>All</em></MenuItem>
                 {data.User.statistics.anime.formats.map(({ format }) => (
                   <MenuItem key={format} value={format}>{format}</MenuItem>
                 ))}
