@@ -58,6 +58,7 @@ const DisplayAnime = (props) => {
                     <Link to={`/library/${mediaId}`}>
                     <CardMedia
                         component="img"
+                        key={mediaId}
                         alt={
                         isEnglish
                             ? media.title.english
