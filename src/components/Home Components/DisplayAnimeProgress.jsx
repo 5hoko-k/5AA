@@ -19,6 +19,7 @@ const DisplayAnimeProgress = (props) => {
               <Link to={`/library/${mediaId}`}>
                 <CardMedia
                   component="img"
+                  key={mediaId}
                   alt={
                     isEnglish
                       ? media.title.english
@@ -30,7 +31,7 @@ const DisplayAnimeProgress = (props) => {
                 />
                 </Link>
                 <CardContent>
-                  <Typography gutterBottom variant="body1" component="div" noWrap>
+                  <Typography key={mediaId} gutterBottom variant="body1" component="div" noWrap>
                     {isEnglish
                       ? media.title.english
                         ? media.title.english

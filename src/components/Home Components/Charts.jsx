@@ -1,8 +1,8 @@
 import React, { useState, PureComponent } from "react";
 import { PieChart, Pie, Cell, Sector, ResponsiveContainer } from "recharts";
 import { useQuery, gql } from "@apollo/client";
-import TheRadar from "../RadarChart";
-import TheRadialBar from "../RadialBarChart";
+import TheRadar from "./RadarChart";
+import TheRadialBar from "./RadialBarChart";
 
 const query = gql`
   query {
@@ -130,8 +130,6 @@ const TheCharts = () => {
   const status = data.User.statistics.anime.statuses;
   const genres = data.User.statistics.anime.genres;
   const totalAnime = data.User.statistics.anime.count;
-
-  console.log(status);
 
   return (
     <>

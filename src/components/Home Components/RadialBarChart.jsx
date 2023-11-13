@@ -59,9 +59,7 @@ const style = {
 };
 
 const TheRadialBar = (props) => {
-  console.log(props.data);
   const total = props.data.reduce((sum, obj) => sum + obj.count, 0);
-  console.log(total)
 
   const colorMap = {
     Drama: "#FF924C",
@@ -82,7 +80,7 @@ const TheRadialBar = (props) => {
     pv: item.count, // Same 'pv' value for all objects
     fill: colorMap[item.genre], // Assigning color based on genre
   }));
-  console.log(transformedData)
+
   const totalAnimeObj = {
     name: 'total',
     count: props.total,
