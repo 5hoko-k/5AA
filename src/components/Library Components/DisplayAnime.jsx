@@ -70,7 +70,7 @@ const DisplayAnime = (props) => {
                     />
                     </Link>
                     <CardContent>
-                    <Typography gutterBottom variant="body1" component="div">
+                    <Typography gutterBottom key={mediaId} variant="body1" component="div">
                         {isEnglish
                         ? media.title.english
                             ? media.title.english
