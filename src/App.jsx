@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import React, { createContext, useState } from "react";
 import Anime from "./pages/Anime";
 import Container from "@mui/material/Container";
+import { CssBaseline } from "@mui/material";
 
 export const TitleIsEnglish = createContext(true);
 export const SetTitleIsEnglish = createContext(() => {});
@@ -19,10 +20,12 @@ export default function App() {
 
   return (
     <>
+    <React.Fragment>
+      <CssBaseline />
       <TitleIsEnglish.Provider value={isEnglish}>
         <SetTitleIsEnglish.Provider value={setEnglish}>
           <NavBar />
-          <Container maxWidth="false" disableGutters sx={{ backgroundColor: '#F8F8F8' }}>
+          <Container maxWidth="false" disableGutters sx={{ backgroundColor: '#3f4b3b' }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/library">
@@ -35,6 +38,7 @@ export default function App() {
           <Footer />
         </SetTitleIsEnglish.Provider>
       </TitleIsEnglish.Provider>
+    </React.Fragment>
     </>
   );
 }
