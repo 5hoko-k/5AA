@@ -10,6 +10,8 @@ import {
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from "./5aaTheme";
 
 inject()
 
@@ -22,8 +24,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <BrowserRouter>
-      <CssBaseline />
-        <App />
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+            <App />
+        </ThemeProvider>
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>

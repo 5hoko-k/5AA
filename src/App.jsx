@@ -25,7 +25,7 @@ export default function App() {
       <TitleIsEnglish.Provider value={isEnglish}>
         <SetTitleIsEnglish.Provider value={setEnglish}>
           <NavBar />
-          <Container maxWidth="false" disableGutters sx={{ backgroundColor: '#3f4b3b' }}>
+          <Container maxWidth="false" disableGutters sx={{ backgroundColor: 'primary' }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/library">
