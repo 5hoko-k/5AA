@@ -3,6 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 import TheRadar from "./RadarChart";
 import TheRadialBar from "./RadialBarChart";
 import ThePieChart from "./PieChart";
+import { Box, Container } from "@mui/material";
 
 const query = gql`
   query {
@@ -53,10 +54,16 @@ const TheCharts = () => {
 
   return (
     <>
+    <Container maxWidth='sm' sx={{ bgcolor:'#fefae0' }}>
       <ThePieChart status={status} />
+    </Container>
+
 
       {/* <TheRadar data={status}/> */}
-      <TheRadialBar data={genres} total={totalAnime}/>
+      <Container maxWidth='sm' sx={{ bgcolor:'#fefae0' }}>
+        <TheRadialBar data={genres} total={totalAnime}/>
+      </Container>
+      
     </>
   );
 };

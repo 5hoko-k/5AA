@@ -5,7 +5,7 @@ import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 function NavBar() {
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" color="primary">
         <Toolbar sx={{ display: 'flex', justifyContent: 'center', gap: '30px', padding: '20px 50px',  }} > 
           <Button component={Link} to="/" color="inherit">
             <Typography variant="h6">Home</Typography>
