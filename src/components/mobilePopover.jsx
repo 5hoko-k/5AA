@@ -36,8 +36,6 @@ function MobilePopover() {
                     About
                   </a>
                 </div>
-
-                <img src="/solutions.jpg" alt="" />
               </Popover.Panel>
             </>
           )}
