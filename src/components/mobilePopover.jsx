@@ -13,12 +13,28 @@ function MobilePopover() {
               <Popover.Button className="inline-flex items-center p-3 bg-white rounded-md hover:bg-slate-100 hover:ring-1">
                 <Bars3Icon className="h-6 w-6" />
               </Popover.Button>
-              <Popover.Panel className="absolute -inset-x-24 z-10 top-16 bg-white rounded-md p-5 ring-1">
-                <div className="grid grid-cols-2">
-                  <a href="/analytics">Analytics</a>
-                  <a href="/engagement">Engagement</a>
-                  <a href="/security">Security</a>
-                  <a href="/integrations">Integrations</a>
+              <Popover.Panel className="absolute left-1/2 -translate-x-1/2 w-screen max-w-sm z-10 top-16 bg-white rounded-xl p-8 ring-1 ">
+                <div className="grid gap-5">
+                  <a
+                    href="/"
+                    className="rounded-md hover:bg-slate-200 p-3 ring-1"
+                  >
+                    Home
+                  </a>
+
+                  <a
+                    href="/library"
+                    className="rounded-md hover:bg-slate-200 p-3 ring-1"
+                  >
+                    Library
+                  </a>
+
+                  <a
+                    href="/about"
+                    className="rounded-md hover:bg-slate-200 p-3 ring-1"
+                  >
+                    About
+                  </a>
                 </div>
 
                 <img src="/solutions.jpg" alt="" />
@@ -32,4 +48,3 @@ function MobilePopover() {
 }
 
 export default MobilePopover;
-
