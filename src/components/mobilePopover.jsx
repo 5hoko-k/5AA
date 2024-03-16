@@ -6,8 +6,6 @@ import { Button } from "@mui/material";
 function MobilePopover() {
   return (
     <>
-      <div className=" relative grid grid-cols-5 justify-items-center h-20 px-3 bg-teal-200">
-        <div className=" col-span-1 self-center">logo</div>
         <Popover className="relative col-start-5 col-span-1 self-center">
           {({ open }) => (
             <>
@@ -41,7 +39,6 @@ function MobilePopover() {
             </>
           )}
         </Popover>
-      </div>
     </>
   );
 }
