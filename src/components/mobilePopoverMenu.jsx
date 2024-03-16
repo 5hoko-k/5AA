@@ -1,12 +1,10 @@
-import { Bars3Icon, ChevronDownIcon, PlayIcon, QuestionMarkCircleIcon, RectangleStackIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, PlayIcon, QuestionMarkCircleIcon, RectangleStackIcon } from "@heroicons/react/24/outline";
 import { Popover } from "@headlessui/react";
-import { Button } from "@mui/material";
-
 
 function MobilePopover() {
   return (
     <>
-        <Popover className="relative col-start-5 col-span-1 self-center">
+        <Popover>
           {({ open }) => (
             <>
               <Popover.Button className="inline-flex items-center p-3 bg-white rounded-md hover:bg-slate-100 hover:ring-1">
