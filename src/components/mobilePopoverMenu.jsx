@@ -7,8 +7,8 @@ function MobilePopover() {
         <Popover>
           {({ open }) => (
             <>
-              <Popover.Button className="inline-flex items-center p-3 bg-white rounded-md hover:bg-slate-100 hover:ring-1">
-                <Bars3Icon className="h-6 w-6" />
+              <Popover.Button className="inline-flex items-center p-3 bg-emerald-800 rounded-md hover:bg-emerald-900 ">
+                <Bars3Icon className="h-6 w-6 text-slate-300" />
               </Popover.Button>
               <Popover.Panel className="absolute -end-1/4 w-screen max-w-sm z-10 top-16 bg-white rounded-xl p-8 shadow-xl">
                 <div className="grid gap-5">
