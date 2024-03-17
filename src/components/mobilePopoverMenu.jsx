@@ -10,7 +10,7 @@ function MobilePopover() {
               <Popover.Button className="inline-flex items-center p-3 bg-emerald-800 rounded-md hover:bg-emerald-900 ">
                 <Bars3Icon className="h-6 w-6 text-slate-300" />
               </Popover.Button>
-              <Popover.Panel className="absolute -end-1/4 w-screen max-w-sm z-10 top-16 bg-white rounded-xl p-8 shadow-xl">
+              <Popover.Panel className="absolute -end-1/4 w-screen max-w-sm z-10 top-16 bg-white rounded-xl p-8 shadow-xl text-slate-800">
                 <div className="grid gap-5">
                   <a
                     href="/"
