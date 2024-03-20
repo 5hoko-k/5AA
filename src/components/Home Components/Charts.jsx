@@ -54,16 +54,27 @@ const TheCharts = () => {
 
   return (
     <>
-    <Container maxWidth='sm' sx={{ bgcolor:'#fefae0' }}>
-      <ThePieChart status={status} />
-    </Container>
+      <div className="px-5 pt-16">
+        <span className="text-xl">Watchlist Overview</span>
+        <p className="text-base">
+          This chart illustrates the number of anime watched and
+          categorized into different statuses.
+        </p>
+      </div>
+      <div className="max-w-sm">
+        <ThePieChart status={status} />
+      </div>
 
 
-      {/* <TheRadar data={status}/> */}
-      <Container maxWidth='sm' sx={{ bgcolor:'#fefae0' }}>
-        <TheRadialBar data={genres} total={totalAnime}/>
-      </Container>
-      
+      <div className="px-5 pt-8">
+        <span className="text-xl">Genre Distribution</span>
+        <p className="text-base">
+        Explore the breakdown of anime genres in my watchlist and discover the diverse range of anime genres that have captured my interest.
+        </p>
+      </div>
+      <div className="min-w-full ">
+        <TheRadialBar data={genres} total={totalAnime} />
+      </div>
     </>
   );
 };

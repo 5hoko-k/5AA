@@ -20,12 +20,12 @@ export default function App() {
 
   return (
     <>
-    <React.Fragment>
-      <CssBaseline />
-      <TitleIsEnglish.Provider value={isEnglish}>
-        <SetTitleIsEnglish.Provider value={setEnglish}>
-          <NavBar />
-          <Container maxWidth="false" disableGutters sx={{ backgroundColor: 'primary' }}>
+      <React.Fragment>
+        <CssBaseline />
+        <TitleIsEnglish.Provider value={isEnglish}>
+          <SetTitleIsEnglish.Provider value={setEnglish}>
+            <NavBar />
+
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/library">
@@ -34,11 +34,11 @@ export default function App() {
               </Route>
               <Route path="/about" element={<About />} />
             </Routes>
-          </Container>
-          <Footer />
-        </SetTitleIsEnglish.Provider>
-      </TitleIsEnglish.Provider>
-    </React.Fragment>
+
+            <Footer />
+          </SetTitleIsEnglish.Provider>
+        </TitleIsEnglish.Provider>
+      </React.Fragment>
     </>
   );
 }

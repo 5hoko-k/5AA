@@ -61,7 +61,7 @@ const renderActiveShape = (props) => {
           y={ey}
           textAnchor={textAnchor}
           fill="#333"
-        >{`Count ${count}`}</text>
+        >{`${count}`}</text>
         <text
           x={ex + (cos >= 0 ? 1 : -1) * 12}
           y={ey}
@@ -69,7 +69,7 @@ const renderActiveShape = (props) => {
           textAnchor={textAnchor}
           fill="#999"
         >
-          {`(Rate ${(percent * 100).toFixed(2)}%)`}
+          {`(${(percent * 100).toFixed(2)}%)`}
         </text>
       </g>
     );
@@ -97,6 +97,7 @@ function ThePieChart({ status }) {
                         outerRadius={120}
                         fill="#8884d8"
                         paddingAngle={5}
+                        margin={{ top: 0, bottom: 0, left: 10, right: 10 }}
                         dataKey="count"
                     >
                         {status.map((entry, index) => (
