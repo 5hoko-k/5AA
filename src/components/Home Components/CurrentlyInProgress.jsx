@@ -10,7 +10,7 @@ function Test(props) {
             className="rounded-sm drop-shadow relative"
           >
             <img className="h-full" src={media.coverImage.extraLarge} alt={media.title.english} />
-            <div className="absolute bottom-0 inset-x-0 bg-black/70 py-2 px-3 text-slate-200 flex flex-col justify-center">
+            <div className="absolute bottom-0 inset-x-0 bg-emerald-950/70 py-2 px-3 text-slate-200 flex flex-col justify-center">
               <h3 className="text-sm">{media.title.english}</h3>
               <p className="text-xs text-slate-400">Progress: EP <span>{progress}</span></p>
             </div>
