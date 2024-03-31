@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import Grid from "@mui/material/Grid";
 import DisplayAnimeProgress from "./DisplayAnimeProgress";
+import Test from "./CurrentlyInProgress";
 
 var query = gql`
   query {
@@ -41,15 +42,15 @@ function DisplayProgress() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
+  
+  const [list] = data.MediaListCollection.lists
 
-  return data.MediaListCollection.lists.map(({ name, entries }) => (
-    <Grid
-      container
-      key={name}
-    >
-      <DisplayAnimeProgress entries={ entries } />
-    </Grid>
-  ));
+  return (
+
+      // <DisplayAnimeProgress entries={ list.entries } />
+      <Test entries={ list.entries } />
+
+  );
 }
 
 export default DisplayProgress;
