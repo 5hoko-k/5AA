@@ -7,6 +7,25 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+const data = [
+  { name: 'A', value: 100 },
+  { name: 'B', value: 200 },
+  { name: 'C', value: 300 },
+];
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p>{`Name: ${label}`}</p>
+        <p>{`Value: ${payload[0].value}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
 const style = {
   top: "50%",
   right: 0,
@@ -51,25 +70,28 @@ const TheRadialBar = (props) => {
         <RadialBarChart
           cx="50%"
           cy="50%"
-          innerRadius="10%"
-          outerRadius="80%"
-          barSize={20}
+          innerRadius="5%"
+          outerRadius="70%"
+          barSize={7}
           data={transformedData}
+          // compact={true}
         >
           <RadialBar
-            minAngle={1}
+            minAngle={15}
             label={{ position: "insideStart", fill: "#fff" }}
             background
             clockWise
             dataKey="count"
-            margin={{top: 1, right: 5, bottom: 5, left: 5}}
+            margin={{ top: 1, right: 5, bottom: 5, left: 5 }}
           />
-          <Legend
-            iconSize={10}
-            layout="vertical"
-            verticalAlign="middle"
-            wrapperStyle={style}
-          />
+            <Legend
+              iconSize={10}
+              layout="vertical"
+              verticalAlign="middle"
+              align="right"
+              wrapperStyle={style}
+            />
+          <Tooltip content={<CustomTooltip />}/>
         </RadialBarChart>
       </ResponsiveContainer>
     </div>
