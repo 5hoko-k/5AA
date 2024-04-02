@@ -54,28 +54,28 @@ const TheCharts = () => {
 
   return (
     <>
-      <div className="h-svh">
-        <div className="px-5 pt-16">
+      <div className="h-svh flex flex-col lg:flex-row items-center justify-center lg:mx-44">
+        <div className="px-5 pt-10 lg:pt-6 ">
           <span className="text-xl">Watchlist Overview</span>
           <p className="text-base">
             This chart illustrates the number of anime watched and categorized
             into different statuses.
           </p>
         </div>
-        <div className="max-w-sm">
+        <div className="">
           <ThePieChart status={status} />
         </div>
       </div>
 
-      <div className="h-svh">
-        <div className="px-5 pt-8">
+      <div className="h-svh flex flex-col lg:flex-row items-center justify-center lg:mx-44">
+        <div className="px-5 pt-8 lg:pt-6">
           <span className="text-xl">Genre Distribution</span>
           <p className="text-base">
             Explore the breakdown of anime genres in my watchlist and discover
             the diverse range of anime genres that have captured my interest.
           </p>
         </div>
-        <div className="min-w-full ">
+        <div className="">
           <TheRadialBar data={genres} total={totalAnime} />
         </div>
       </div>

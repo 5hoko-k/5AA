@@ -13,19 +13,6 @@ const data = [
   { name: 'C', value: 300 },
 ];
 
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <p>{`Name: ${label}`}</p>
-        <p>{`Value: ${payload[0].value}`}</p>
-      </div>
-    );
-  }
-
-  return null;
-};
-
 const style = {
   top: "50%",
   right: 0,
@@ -74,7 +61,6 @@ const TheRadialBar = (props) => {
           outerRadius="70%"
           barSize={7}
           data={transformedData}
-          // compact={true}
         >
           <RadialBar
             minAngle={15}
@@ -91,7 +77,6 @@ const TheRadialBar = (props) => {
               align="right"
               wrapperStyle={style}
             />
-          <Tooltip content={<CustomTooltip />}/>
         </RadialBarChart>
       </ResponsiveContainer>
     </div>
