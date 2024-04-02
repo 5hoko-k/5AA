@@ -62,7 +62,7 @@ const TheCharts = () => {
             into different statuses.
           </p>
         </div>
-        <div className="">
+        <div>
           <ThePieChart status={status} />
         </div>
       </div>
@@ -75,7 +75,7 @@ const TheCharts = () => {
             the diverse range of anime genres that have captured my interest.
           </p>
         </div>
-        <div className="">
+        <div>
           <TheRadialBar data={genres} total={totalAnime} />
         </div>
       </div>
