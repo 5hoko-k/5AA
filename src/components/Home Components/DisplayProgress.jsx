@@ -1,7 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import Grid from "@mui/material/Grid";
 import DisplayAnimeProgress from "./DisplayAnimeProgress";
-import Test from "./CurrentlyInProgress";
+import DisplayAnimeProgress from "./CurrentlyInProgress";
 
 var query = gql`
   query {
@@ -47,8 +47,7 @@ function DisplayProgress() {
 
   return (
 
-      // <DisplayAnimeProgress entries={ list.entries } />
-      <Test entries={ list.entries } />
+      <DisplayAnimeProgress entries={ list.entries } />
 
   );
 }

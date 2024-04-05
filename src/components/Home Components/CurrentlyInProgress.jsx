@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { TitleIsEnglish } from "../../App";
 
-function Test(props) {
+function DisplayAnimeProgress(props) {
   const entries = props.entries;
   console.log(entries);
 
-const titleIsEnglish = useContext(TitleIsEnglish)
+  const titleIsEnglish = useContext(TitleIsEnglish);
 
   return (
     <>
@@ -23,7 +23,13 @@ const titleIsEnglish = useContext(TitleIsEnglish)
                 alt={media.title.english}
               />
               <div className="absolute bottom-0 inset-x-0 bg-emerald-950/70 py-2 px-3 text-slate-200 flex flex-col justify-center">
-                <h3 className="text-sm">{ titleIsEnglish ? ( media.title.english ? media.title.english : media.title.romaji ) : media.title.romaji }</h3>
+                <h3 className="text-sm">
+                  {titleIsEnglish
+                    ? media.title.english
+                      ? media.title.english
+                      : media.title.romaji
+                    : media.title.romaji}
+                </h3>
                 <p className="text-xs text-slate-400">
                   Progress: EP <span>{progress}</span>
                 </p>
@@ -36,4 +42,4 @@ const titleIsEnglish = useContext(TitleIsEnglish)
   );
 }
 
-export default Test;
+export default DisplayAnimeProgress;
