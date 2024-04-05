@@ -1,7 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import Grid from "@mui/material/Grid";
 import DisplayAnimeProgress from "./DisplayAnimeProgress";
-import DisplayAnimeProgress from "./CurrentlyInProgress";
 
 var query = gql`
   query {
