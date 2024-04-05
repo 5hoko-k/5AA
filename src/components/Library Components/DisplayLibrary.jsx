@@ -2,7 +2,7 @@ import { useState } from "react";
 import Filter from "./Filter";
 import Grid from "@mui/material/Grid";
 import DisplayAnime from "./DisplayAnime";
-
+import NewFilter from "./NewFilter";
 
 function DisplayLibrary(props) {
   const [genre, setGenre] = useState();
@@ -12,17 +12,19 @@ function DisplayLibrary(props) {
   if (props.loading) return <p>Loading...</p>;
   if (props.error) return <p>Error : {error.message}</p>;
 
-  const mergedListEntries = props.data.MediaListCollection.lists.flatMap((obj) => obj.entries);
-  console.log('MLE')
+  const mergedListEntries = props.data.MediaListCollection.lists.flatMap(
+    (obj) => obj.entries
+  );
+  console.log("MLE");
   console.log(mergedListEntries);
-  console.log('MLE')
+  console.log("MLE");
 
   const sortedMergedListEntries = mergedListEntries.sort(
     (a, b) => b.media.popularity - a.media.popularity
   );
-    console.log('SMLE')
-    console.log(sortedMergedListEntries)
-    console.log('SMLE')
+  console.log("SMLE");
+  console.log(sortedMergedListEntries);
+  console.log("SMLE");
 
   const onFilter = (genre, status, format) => {
     setGenre(genre);
@@ -32,21 +34,24 @@ function DisplayLibrary(props) {
 
   return (
     <>
-      <Filter  onFilter={onFilter} />
+      <div className="h-32"></div>
+      <div className="px-16">
+        <Filter onFilter={onFilter} />
+        <NewFilter />
+      </div>
 
-      {props.data &&
-          <Grid container>
-            <DisplayAnime
-              entries={sortedMergedListEntries}
-              genre={genre}
-              status={status}
-              format={format}
-            />
-          </Grid>
-        }
+      {props.data && (
+        <Grid container>
+          <DisplayAnime
+            entries={sortedMergedListEntries}
+            genre={genre}
+            status={status}
+            format={format}
+          />
+        </Grid>
+      )}
     </>
   );
 }
 
 export default DisplayLibrary;
-
