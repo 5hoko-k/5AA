@@ -9,7 +9,7 @@ function Test(props) {
         {entries.map(({ id, progress, media, mediaId, updatedAt }) => (
           <div
             key={id}
-            className="rounded-md hover:drop-shadow-2xl shadow-md relative overflow-hidden"
+            className="rounded-md drop-shadow-2xl relative overflow-hidden"
           >
             <Link to={`/library/${mediaId}`}>
               <img
