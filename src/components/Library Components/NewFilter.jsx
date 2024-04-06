@@ -47,11 +47,13 @@ const ListBox = (props) => {
       </Listbox.Button>
       <Listbox.Options>
         {props.genres.map(({ genre }) => (
-          <>
-            <Listbox.Option key={genre} value={genre}>
-              <span>{genre}</span>
-            </Listbox.Option>
-          </>
+          <Listbox.Option key={genre} value={genre}>
+            {({ active, selected }) => (
+              <div className={` py-3 px-2 ${ active ? 'bg-slate-400' : ''}`}>
+                <span className={selected ? `bg-slate-400` : ``}>{genre}</span>
+              </div>
+            )}
+          </Listbox.Option>
         ))}
       </Listbox.Options>
     </Listbox>
