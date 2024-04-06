@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
-import { Menu } from "@headlessui/react";
+import { Listbox, Menu } from "@headlessui/react";
+import { useState } from "react";
 
 const query = gql`
   query {
@@ -11,7 +12,6 @@ const query = gql`
           }
           genres(sort: COUNT_DESC) {
             genre
-            mediaIds
           }
         }
       }
@@ -26,23 +26,34 @@ function NewFilter() {
   if (error) return <p>Error: {error.message}</p>;
   if (data) {
     const genres = data.User.statistics.anime.genres;
+
     return (
       <>
-        <Menu>
-          <Menu.Button className='p-2 ring-2 rounded-md'>Genre</Menu.Button>
-          <Menu.Items>
-            {genres.map(({ genre }) => (
-              <Menu.Item key={genre}>
-                {({ active }) => (
-                  <p className={`${active && 'bg-slate-300'}`}>{genre}</p>
-                )}
-              </Menu.Item>
-            ))}
-          </Menu.Items>
-        </Menu>
+        <ListBox genres={genres} />
       </>
     );
   }
 }
 
 export default NewFilter;
+
+const ListBox = (props) => {
+  const [selectedOption, setSelectedOption] = useState(props.genres[0].genre);
+  console.log(selectedOption);
+  return (
+    <Listbox value={selectedOption} onChange={setSelectedOption}>
+      <Listbox.Button className="p-2 ring-2 rounded-md">
+        {selectedOption}
+      </Listbox.Button>
+      <Listbox.Options>
+        {props.genres.map(({ genre }) => (
+          <>
+            <Listbox.Option key={genre} value={genre}>
+              <span>{genre}</span>
+            </Listbox.Option>
+          </>
+        ))}
+      </Listbox.Options>
+    </Listbox>
+  );
+};
