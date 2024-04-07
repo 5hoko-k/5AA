@@ -26,15 +26,15 @@ function NewFilter() {
   if (loading) return <p>loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
   if (data) {
-    const genres = data.User.statistics.anime.genres;
-    const formats = data.User.statistics.anime.formats;
+    const genres = data.User.statistics.anime.genres.map((obj) => obj.genre);
+    const formats = data.User.statistics.anime.formats.map((obj) => obj.format);
     const status = ["Watching", "Completed", "Planning", "Dropped", "Paused"];
 
     return (
       <div className="flex p-5 justify-around shadow-lg rounded-md">
-        <ListBox genres={genres} formats={null} status={null} />
-        <ListBox genres={null} formats={formats} status={null} />
-        <ListBox genres={null} formats={null} status={status} />
+        <ListBox data={genres} text="Genre" />
+        <ListBox data={formats} text="Formats" />
+        <ListBox data={status} text="Status" />
       </div>
     );
   }
@@ -42,29 +42,18 @@ function NewFilter() {
 
 export default NewFilter;
 
-const ListBox = ({ genres, formats, status }) => {
-  const [selectedOption, setSelectedOption] = useState(
-    `${genres ? "Genre" : formats ? "Format" : status ? "Status" : "All"}`
-  );
-
-  var data;
-  if (genres) {
-    data = genres.map((obj) => obj.genre);
-  } else if (formats) {
-    data = formats.map((obj) => obj.format);
-  } else {
-    data = status;
-  }
+const ListBox = ({ data, text }) => {
+  const [selectedOption, setSelectedOption] = useState(text);
 
   return (
     <div className="relative">
       <Listbox value={selectedOption} onChange={setSelectedOption}>
         <Listbox.Button className="p-2 w-44 ring-2 rounded-md flex justify-between items-center">
-          <span>{selectedOption}</span>
+          <em>{selectedOption}</em>
           <ChevronDownIcon className="h-4 w-4 text-gray-500" />
         </Listbox.Button>
         <Listbox.Options className="w-44 max-h-60 shadow-xl rounded-sm absolute left-0 z-10 bg-white overflow-auto">
-          {data.map((word) => (
+          {data.map(word => (
             <Listbox.Option key={word} value={word}>
               {({ active, selected }) => (
                 <div className={` p-2 ${active ? "bg-slate-400" : ""}`}>
