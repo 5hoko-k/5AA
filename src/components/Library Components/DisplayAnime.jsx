@@ -8,19 +8,21 @@ import { Badge } from "@mui/material";
 import { useContext } from "react";
 import Grid from "@mui/material/Grid";
 
-const DisplayAnime = (props) => {
+const DisplayAnime = ({ entries, genre, status, format }) => {
     const isEnglish = useContext(TitleIsEnglish);
   
-    const filteredEntries = props.entries.filter((entry) => {
+    console.log(genre + format + status)
+
+    const filteredEntries = entries.filter((entry) => {
       let matched = true;
   
-      if (props.genre && entry.media.genres.indexOf(props.genre) === -1) {
+      if (genre && entry.media.genres.indexOf(genre) === -1) {
         matched = false;
       }
-      if (props.format && entry.media.format !== props.format) {
+      if (format && entry.media.format !== format) {
         matched = false;
       }
-      if (props.status && entry.status !== props.status) {
+      if (status && entry.status !== status) {
         matched = false;
       }
       return matched;
