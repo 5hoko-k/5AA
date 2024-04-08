@@ -20,21 +20,29 @@ const query = gql`
   }
 `;
 
-function NewFilter() {
+function NewFilter({ onFilter }) {
   const { loading, data, error } = useQuery(query);
+  const [genre, setGenre] = useState();
+  const [format, setFormat] = useState();
+  const [status, setStatus] = useState();
 
   if (loading) return <p>loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
   if (data) {
     const genres = data.User.statistics.anime.genres.map((obj) => obj.genre);
     const formats = data.User.statistics.anime.formats.map((obj) => obj.format);
-    const status = ["Watching", "Completed", "Planning", "Dropped", "Paused"];
+    const statusData = ["CURRENT", "COMPLETED", "PLANNING", "DROPPED", "PAUSED"];
+
+    const handleSubmit = (e) => {
+      onFilter(genre, status, format);
+    };
 
     return (
-      <div className="flex p-5 justify-around shadow-lg rounded-md">
-        <ListBox data={genres} text="Genre" />
-        <ListBox data={formats} text="Formats" />
-        <ListBox data={status} text="Status" />
+      <div className="flex p-5 mb-10 justify-around shadow-lg rounded-md">
+        <ListBox data={genres} text="Genre" setFilter={setGenre}/>
+        <ListBox data={formats} text="Formats" setFilter={setFormat}/>
+        <ListBox data={statusData} text="Status" setFilter={setStatus}/>
+        <button type="submit" className="p-2 w-24 hover:bg-emerald-600 ring-2 rounded-sm bg-emerald-500" onClick={handleSubmit}>Filter</button>
       </div>
     );
   }
@@ -42,9 +50,9 @@ function NewFilter() {
 
 export default NewFilter;
 
-const ListBox = ({ data, text }) => {
+const ListBox = ({ data, text, setFilter }) => {
   const [selectedOption, setSelectedOption] = useState(text);
-
+  setFilter(selectedOption)
   return (
     <div className="relative">
       <Listbox value={selectedOption} onChange={setSelectedOption}>
