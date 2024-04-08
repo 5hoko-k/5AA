@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewFilter from "./NewFilter";
+import NewFilter from "./Filter";
 import DisplayAnime from '../Home Components/DisplayAnime';
 
 function DisplayLibrary(props) {
