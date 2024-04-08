@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { TitleIsEnglish } from "../../App";
 
-function DisplayAnimeProgress({ entries }) {
+function DisplayAnime({ entries }) {
   console.log(entries);
 
   const titleIsEnglish = useContext(TitleIsEnglish);
@@ -41,4 +41,4 @@ function DisplayAnimeProgress({ entries }) {
   );
 }
 
-export default DisplayAnimeProgress;
+export default DisplayAnime;

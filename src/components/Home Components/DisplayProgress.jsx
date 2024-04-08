@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import DisplayAnimeProgress from "./DisplayAnimeProgress";
+import DisplayAnime from "./DisplayAnime";
 
 var query = gql`
   query {
@@ -45,7 +45,7 @@ function DisplayProgress() {
 
   return (
 
-      <DisplayAnimeProgress entries={ list.entries } />
+      <DisplayAnime entries={ list.entries } />
 
   );
 }

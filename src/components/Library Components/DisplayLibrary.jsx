@@ -1,9 +1,6 @@
 import { useState } from "react";
-import Filter from "./Filter";
-import Grid from "@mui/material/Grid";
-import DisplayAnime from "./DisplayAnime";
 import NewFilter from "./NewFilter";
-import DisplayAnimeProgress from '../Home Components/DisplayAnimeProgress';
+import DisplayAnime from '../Home Components/DisplayAnime';
 
 function DisplayLibrary(props) {
   const [genre, setGenre] = useState();
@@ -59,15 +56,7 @@ function DisplayLibrary(props) {
 
       {props.data && (
         <>
-          <DisplayAnimeProgress entries={filteredEntries} />
-          {/* <Grid container>
-            <DisplayAnime
-              entries={sortedMergedListEntries}
-              genre={genre}
-              status={status}
-              format={format}
-            />
-          </Grid> */}
+          <DisplayAnime entries={filteredEntries} />
         </>
       )}
     </>
