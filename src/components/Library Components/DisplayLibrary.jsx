@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import Grid from "@mui/material/Grid";
 import DisplayAnime from "./DisplayAnime";
 import NewFilter from "./NewFilter";
+import DisplayAnimeProgress from '../Home Components/DisplayAnimeProgress';
 
 function DisplayLibrary(props) {
   const [genre, setGenre] = useState();
@@ -32,22 +33,42 @@ function DisplayLibrary(props) {
     setFormat(format);
   };
 
+  const filteredEntries = sortedMergedListEntries.filter((entry) => {
+    let matched = true;
+
+    if (genre && entry.media.genres.indexOf(genre) === -1) {
+      matched = false;
+    }
+    if (format && entry.media.format !== format) {
+      matched = false;
+    }
+    if (status && entry.status !== status) {
+      matched = false;
+    }
+    return matched;
+  });
+
+  console.log(filteredEntries);
+
   return (
     <>
       <div className="h-32"></div>
       <div className="px-16">
-        <NewFilter onFilter={onFilter}/>
+        <NewFilter onFilter={onFilter} />
       </div>
 
       {props.data && (
-        <Grid container>
-          <DisplayAnime
-            entries={sortedMergedListEntries}
-            genre={genre}
-            status={status}
-            format={format}
-          />
-        </Grid>
+        <>
+          <DisplayAnimeProgress entries={filteredEntries} />
+          {/* <Grid container>
+            <DisplayAnime
+              entries={sortedMergedListEntries}
+              genre={genre}
+              status={status}
+              format={format}
+            />
+          </Grid> */}
+        </>
       )}
     </>
   );

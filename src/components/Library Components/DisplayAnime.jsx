@@ -7,11 +7,9 @@ import Card from "@mui/material/Card";
 import { Badge } from "@mui/material";
 import { useContext } from "react";
 import Grid from "@mui/material/Grid";
+import DisplayAnimeProgress from '../Home Components/DisplayAnimeProgress';
 
 const DisplayAnime = ({ entries, genre, status, format }) => {
-    const isEnglish = useContext(TitleIsEnglish);
-  
-    console.log(genre + format + status)
 
     const filteredEntries = entries.filter((entry) => {
       let matched = true;
@@ -27,6 +25,8 @@ const DisplayAnime = ({ entries, genre, status, format }) => {
       }
       return matched;
     });
+
+    console.log(filteredEntries)
   
     const statusColor = (status) => {
       if (status === "CURRENT") {
@@ -43,7 +43,9 @@ const DisplayAnime = ({ entries, genre, status, format }) => {
     };
   
     return (
-      <Grid container mx={{ sm: 5, lg: 10 }}>
+      <>
+      <DisplayAnimeProgress entries={filteredEntries} />
+      {/* <Grid container mx={{ sm: 5, lg: 10 }}>
         {filteredEntries.map(({ mediaId, media, progress, status }) => (
             <Grid item key={mediaId} xs={6} sm={4} md={3} lg={2} px={1} py={1}>
                 <Badge
@@ -90,7 +92,8 @@ const DisplayAnime = ({ entries, genre, status, format }) => {
                 </Badge>
             </Grid>
         ))}
-      </Grid>
+      </Grid> */}
+      </>
     );
   };
 
