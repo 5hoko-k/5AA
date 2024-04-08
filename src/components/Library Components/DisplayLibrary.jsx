@@ -15,16 +15,16 @@ function DisplayLibrary(props) {
   const mergedListEntries = props.data.MediaListCollection.lists.flatMap(
     (obj) => obj.entries
   );
-  console.log("MLE");
-  console.log(mergedListEntries);
-  console.log("MLE");
+  // console.log("MLE");
+  // console.log(mergedListEntries);
+  // console.log("MLE");
 
   const sortedMergedListEntries = mergedListEntries.sort(
     (a, b) => b.media.popularity - a.media.popularity
   );
-  console.log("SMLE");
-  console.log(sortedMergedListEntries);
-  console.log("SMLE");
+  // console.log("SMLE");
+  // console.log(sortedMergedListEntries);
+  // console.log("SMLE");
 
   const onFilter = (genre, status, format) => {
     setGenre(genre);
@@ -36,8 +36,7 @@ function DisplayLibrary(props) {
     <>
       <div className="h-32"></div>
       <div className="px-16">
-        <Filter onFilter={onFilter} />
-        <NewFilter />
+        <NewFilter onFilter={onFilter}/>
       </div>
 
       {props.data && (
