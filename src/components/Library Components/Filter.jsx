@@ -40,7 +40,7 @@ function Filter({ onFilter }) {
     return (
       <div className="flex flex-col gap-4 sm:flex-row p-5 mb-10 sm:justify-around items-center justify-center shadow-lg rounded-md">
         <ListBox data={genres} text="Genre" setFilter={setGenre}/>
-        <ListBox data={formats} text="Formats" setFilter={setFormat}/>
+        <ListBox data={formats} text="Format" setFilter={setFormat}/>
         <ListBox data={statusData} text="Status" setFilter={setStatus}/>
         <button type="button" className="p-2 w-24 hover:bg-emerald-600 ring-2 rounded-sm bg-emerald-500" onClick={handleSubmit}>Filter</button>
       </div>

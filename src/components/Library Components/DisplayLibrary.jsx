@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewFilter from "./Filter";
+import Filter from "./Filter";
 import DisplayAnime from '../Home Components/DisplayAnime';
 
 function DisplayLibrary(props) {
@@ -33,13 +33,13 @@ function DisplayLibrary(props) {
   const filteredEntries = sortedMergedListEntries.filter((entry) => {
     let matched = true;
 
-    if (genre && entry.media.genres.indexOf(genre) === -1) {
+    if (genre && genre !== 'Genre' && entry.media.genres.indexOf(genre) === -1) {
       matched = false;
     }
-    if (format && entry.media.format !== format) {
+    if (format && format !== 'Format' && entry.media.format !== format) {
       matched = false;
     }
-    if (status && entry.status !== status) {
+    if (status && status !== 'Status' && entry.status !== status) {
       matched = false;
     }
     return matched;
@@ -51,7 +51,7 @@ function DisplayLibrary(props) {
     <>
       <div className="h-32"></div>
       <div className="px-16">
-        <NewFilter onFilter={onFilter} />
+        <Filter onFilter={onFilter} />
       </div>
 
       {props.data && (
