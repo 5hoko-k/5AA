@@ -11,7 +11,7 @@ function Home() {
         className='h-lvh z-30 bg-cover bg-center brightness-50 bg-fixed shadow-inner'
         style={{ backgroundImage: `url(${heroImage})`}}
       ></div>
-      <TheCharts />
+      {/* <TheCharts /> */}
       <DisplayProgress />
     </div>
   );
