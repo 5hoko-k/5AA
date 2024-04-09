@@ -17,7 +17,7 @@ function DisplayAnime({ entries }) {
           >
             <Link to={`/library/${mediaId}`}>
               <img
-                className="h-fit"
+                className="h-max"
                 src={media.coverImage.extraLarge}
                 alt={media.title.english}
               />
