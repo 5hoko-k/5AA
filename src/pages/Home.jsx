@@ -8,7 +8,7 @@ function Home() {
     <div className="bg-slate-100">
       {/* <DisplayStats /> */}
       <div
-        className='h-lvh z-30 bg-cover bg-center brightness-50 bg-fixed shadow-inner'
+        className='h-svh z-30 bg-cover bg-center brightness-50 bg-fixed shadow-inner'
         style={{ backgroundImage: `url(${heroImage})`}}
       ></div>
       {/* <TheCharts /> */}
