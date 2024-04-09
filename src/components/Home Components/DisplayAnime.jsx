@@ -13,11 +13,11 @@ function DisplayAnime({ entries }) {
         {entries.map(({ id, progress, media, mediaId, updatedAt }) => (
           <div
             key={id}
-            className="rounded-md h-72 drop-shadow-2xl relative overflow-hidden"
+            className="rounded-md drop-shadow-2xl relative overflow-hidden"
           >
             <Link to={`/library/${mediaId}`}>
               <img
-                className="h-full object-cover object-center"
+                className="size-full object-cover object-center"
                 src={media.coverImage.extraLarge}
                 alt={media.title.english}
               />
